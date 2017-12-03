@@ -151,9 +151,12 @@ If we only want it to run if it's an AJAX request, we can add it to the `ajax` s
 
     'ajax' => [
         ...
+
         \App\Exceptions\MyException::class => [
             \App\Exceptions\Handlers\MyHandler::class
-        ]
+        ],
+
+        ...
     ]
 
     ...
