@@ -1,0 +1,67 @@
+<?php
+namespace DerekHamilton\Glove\Logging;
+
+use Psr\Log\LoggerInterface;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Contracts\Auth\Guard as Authentication;
+use DerekHamilton\Glove\Contracts\Logging\Logger as LoggerContract;
+use Throwable;
+
+class Logger implements LoggerContract
+{
+    /** @var LoggerInterface */
+    private $logger;
+
+    /** @var array */
+    private $logLevels;
+
+    /**
+     * @param Container       $app
+     * @param LoggerInterface $logger
+     * @param Authentication  $auth
+     */
+    public function __construct(Container $app, LoggerInterface $logger, Authentication $auth)
+    {
+        $this->logger    = $logger;
+        $this->auth      = $auth;
+        $this->logLevels = $app->config->get('glove.logLevels', []);
+    }
+
+    /**
+     * @param Throwable $e
+     * @return void
+     */
+    public function log(Throwable $e)
+    {
+        foreach ($this->logLevels as $exception => $logLevel) {
+            if ($e instanceof $exception) {
+                if ($logLevel === 'ignore') {
+                    return;
+                }
+
+                $this->logger->$logLevel(
+                    $e->getMessage(),
+                    array_merge($this->context(), ['exception' => $e])
+                );
+                return;
+            }
+        }
+    }
+
+    /**
+     * Get the default context variables for logging.
+     *
+     * @return array
+     */
+    private function context()
+    {
+        try {
+            return array_filter([
+                'userId' => $this->auth->id(),
+                'email' => $this->auth->user() ? $this->auth->user()->email : null,
+            ]);
+        } catch (Throwable $e) {
+            return [];
+        }
+    }
+}

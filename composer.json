@@ -1,0 +1,38 @@
+{
+    "name": "derekhamilton/glove",
+    "description": "Exception handling for Laravel that catches like a glove.",
+    "keywords": ["laravel", "exceptions", "exception", "handling"],
+    "license": "MIT",
+    "require": {
+        "php": "^7.0",
+        "illuminate/contracts": "5.3.*|5.4.*|5.5.*",
+        "illuminate/support": "5.3.*|5.4.*|5.5.*",
+        "symfony/console": "^3.1",
+        "symfony/debug": "^3.1",
+        "symfony/http-foundation": "^3.1",
+        "psr/log": "^1.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "phpunit/phpunit": "^6.1",
+        "orchestra/testbench": "~3.0",
+        "filp/whoops": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "DerekHamilton\\Glove\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DerekHamilton\\Tests\\Glove\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DerekHamilton\\Glove\\Providers\\GloveServiceProvider"
+            ]
+        }
+    }
+}
