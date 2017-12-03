@@ -15,7 +15,7 @@ class ExceptionRenderer
 
     /**
      * @param Container           $app
-     * @param HandlerTypeRenderer $renderer
+     * @param HandlerTypesRenderer $renderer
      */
     public function __construct(Container $app, HandlerTypesRenderer $renderer)
     {

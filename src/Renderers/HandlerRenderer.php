@@ -8,8 +8,8 @@ use Exception;
 
 class HandlerRenderer
 {
-    /** @var ExceptionHandlersRenderer */
-    private $renderer;
+    /** @var Container */
+    private $app;
 
     /**
      * @param Container $app

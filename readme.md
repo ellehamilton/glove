@@ -11,19 +11,21 @@ Laravel Glove is written for Laravel 5.5 and higher, thus also requiring PHP 7.0
 
 Installation is done via composer
 
-`composer require derekhamilton/laravel-glove`
+~~~shell
+composer require derekhamilton/laravel-glove
+~~~
 
 Once installed we need to run
 
-`php artisan vendor:publish`
+~~~shell
+php artisan vendor:publish
+~~~
 
-in order to install the required configuration files.
+If you don't use auto-discovery, you'll need to add `GloveServiceProvider` to the providers array in `config/app.php`
 
-The service provider is
-
-`DerekHamilton\\Glove\\Providers\\GloveServiceProvider`
-
-But should be autodiscovered.
+~~~php
+DerekHamilton\Glove\Providers\GloveServiceProvider::class,
+~~~
 
 ### Error Pages ###
 

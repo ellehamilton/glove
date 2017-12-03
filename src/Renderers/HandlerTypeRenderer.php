@@ -6,11 +6,11 @@ use Exception;
 
 class HandlerTypeRenderer
 {
-    /** @var ExceptionHandlersRenderer */
+    /** @var HandlersRenderer */
     private $renderer;
 
     /**
-     * @param ExceptionHandlerRenderer $renderer
+     * @param HandlersRenderer $renderer
      */
     public function __construct(HandlersRenderer $renderer)
     {
@@ -18,7 +18,7 @@ class HandlerTypeRenderer
     }
 
     /**
-     * @param array     $handlerTypes
+     * @param array     $exceptions
      * @param Request   $request
      * @param Exception $e
      * @return \Symfony\Component\HttpFoundation\Response|null
