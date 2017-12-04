@@ -19,7 +19,7 @@ Laravel Glove is written for Laravel 5.5 and higher, thus also requiring PHP 7.0
 Installation is done via composer
 
 ~~~shell
-composer require derekhamilton/laravel-glove
+composer require derekhamilton/glove
 ~~~
 
 Once installed we need to run
