@@ -85,9 +85,33 @@ Let's make `MyException` emit a `403` status
 ]
 ~~~
 
+Status codes are interpreted in order from top to bottom. The first exception it finds that is an instance of the exception thrown will be the status code used.
+
+e.g if we have the following,
+
+~~~php
+'statusCodes' => [
+    \App\Exception\MyException::class => '403',
+    \Exception::class => '500',
+];
+~~~
+
+If we throw `\App\Exception\MyException` the status code will be '403' because it matches and is first. If we reverse the order,
+
+~~~php
+'statusCodes' => [
+    \Exception::class => '500',
+    \App\Exception\MyException::class => '403',
+];
+~~~
+
+Then the status code will be '500' because `\App\Exception\MyException` is an instance of `Exception` and is matched first.
+
 ### Logging ###
 
 Whether or not to log exceptions, and the log level at which to log them, can be specified in `config/glove.php`
+
+Logging is also considered in top-to-bottom order in the same manner as Status Codes.
 
 #### Skipping Logging ####
 
@@ -171,6 +195,8 @@ If we only want it to run if it's an AJAX request, we can add it to the `ajax` s
 ~~~
 
 An exception can have multiple handlers, as if `null` is returned instead of a `Response` object, it will cascade and continue processing handlers until it does receive a response.
+
+Handlers are interpreted in top-to-bottom order in the same manner as Status Codes.
 
 #### Custom Handler Without a Response ####
 
