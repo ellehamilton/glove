@@ -1,7 +1,14 @@
 Laravel Glove
 ---------------
 
-Catch exceptions with Laravel Glove.
+Catch exceptions with Laravel Glove. The main goal of this package to make is easy as possible to add custom error pages, and create custom error handlers to do whatever you need.
+
+This means
+
+ - A simple interface to implement that lets you return a response and be done
+ - Cascading handlers simply by omitting a response
+ - Specifying status codes and log levels in the config
+ - No need to use an error handler when all we want is to output a custom error page, just point to the view in the config
 
 ### Requirements ###
 
