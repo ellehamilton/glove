@@ -121,7 +121,7 @@ We can ignore logging on an exception by setting the log level to `ignore`
 'logLevels' => [
     ...
 
-    \App\Exceptions\MyException::class => 'critical',
+    \App\Exceptions\MyException::class => 'ignore',
 
     ...
 ]
