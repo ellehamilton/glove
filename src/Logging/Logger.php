@@ -12,6 +12,9 @@ class Logger implements LoggerContract
     /** @var LoggerInterface */
     private $logger;
 
+    /** @var Authentication */
+    private $auth;
+
     /** @var array */
     private $logLevels;
 

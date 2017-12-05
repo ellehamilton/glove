@@ -2,6 +2,11 @@
 
 return [
 
+    // By default, Glove overrides the exception handler class in order
+    // to take over handling. If your project has exception handling in
+    // a different location, then this can be changed to accomodate.
+    'appHandler' => \App\Exceptions\Handler::class,
+
     // Register any exception handlers in this array
     'handlers' => [
         // AJAX handlers are only processed if the request is an AJAX request

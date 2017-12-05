@@ -15,9 +15,11 @@ class ExceptionHandlerTest extends \DerekHamilton\Tests\Glove\TestCase
 {
     public function testHandle()
     {
+        $viewString = 'foo';
         $this->app->config->set('glove-codes.500.view', 'vendor.glove.exception');
 
         $view = Mockery::mock(View::class);
+        $view->shouldReceive('render')->andReturn($viewString);
         $viewFactory = Mockery::mock(ViewFactory::class);
         $viewFactory->shouldReceive('make')
             ->with('vendor.glove.exception', Mockery::type('array'))
@@ -25,7 +27,7 @@ class ExceptionHandlerTest extends \DerekHamilton\Tests\Glove\TestCase
 
         $response = Mockery::mock(Response::class);
         $responseFactory = Mockery::mock(ResponseFactory::class);
-        $responseFactory->shouldReceive('make')->with($view, Mockery::type('string'))->andReturn($response);
+        $responseFactory->shouldReceive('make')->with($viewString, Mockery::type('int'))->andReturn($response);
 
         $handler = $this->app->make(ExceptionHandler::class, ['responseFactory' => $responseFactory, 'viewFactory' => $viewFactory]);
         $request = $this->app->make(Request::class);

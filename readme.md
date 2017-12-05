@@ -139,7 +139,7 @@ We can change the log level from the default 'error' to any of the Laravel log l
 
 ### Custom Exception Handling ###
 
-Writing a custom exception handler is as simple as implementing the `Handler` interface then telling it when to run in `config/glove.php`
+Writing a custom exception handler is as simple as implementing the `\DerekHamilton\Glove\Contracts\Handler` then telling it when to run in `config/glove.php`
 
 #### Custom Response ####
 

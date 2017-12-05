@@ -9,7 +9,7 @@
 // made available to the view as $code
 return [
 
-    '400' => [
+    400 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Bad Request",
@@ -17,7 +17,7 @@ return [
         ]
     ],
 
-    '401' => [
+    401 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Unauthorized",
@@ -25,7 +25,7 @@ return [
         ]
     ],
 
-    '403' => [
+    403 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Forbidden",
@@ -33,7 +33,7 @@ return [
         ]
     ],
 
-    '404' => [
+    404 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Page Not Found",
@@ -41,7 +41,7 @@ return [
         ]
     ],
 
-    '405' => [
+    405 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Method Not Allowed",
@@ -49,7 +49,7 @@ return [
         ]
     ],
 
-    '406' => [
+    406 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Not Acceptable",
@@ -57,7 +57,7 @@ return [
         ]
     ],
 
-    '407' => [
+    407 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Proxy Authentication Required",
@@ -65,7 +65,7 @@ return [
         ]
     ],
 
-    '408' => [
+    408 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Request Timeout",
@@ -73,7 +73,7 @@ return [
         ]
     ],
 
-    '409' => [
+    409 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Confict",
@@ -81,7 +81,7 @@ return [
         ]
     ],
 
-    '410' => [
+    410 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Gone",
@@ -89,7 +89,7 @@ return [
         ]
     ],
 
-    '411' => [
+    411 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Length Required",
@@ -97,7 +97,7 @@ return [
         ]
     ],
 
-    '412' => [
+    412 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Precondition Failed (RFC 7232)",
@@ -105,7 +105,7 @@ return [
         ]
     ],
 
-    '413' => [
+    413 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Payload Too Large (RFC 7231)",
@@ -113,7 +113,7 @@ return [
         ]
     ],
 
-    '414' => [
+    414 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "URI Too Long (RFC 7231)",
@@ -121,7 +121,7 @@ return [
         ]
     ],
 
-    '415' => [
+    415 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Unsupported Media Type",
@@ -129,7 +129,7 @@ return [
         ]
     ],
 
-    '416' => [
+    416 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Range Not Satisfiable (RFC 7233)",
@@ -137,7 +137,7 @@ return [
         ]
     ],
 
-    '417' => [
+    417 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Expectation Failed",
@@ -145,7 +145,7 @@ return [
         ]
     ],
 
-    '418' => [
+    418 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "I'm a teapot (RFC 2324)",
@@ -153,7 +153,7 @@ return [
         ]
     ],
 
-    '421' => [
+    421 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Misdirected Request (RFC 7540)",
@@ -161,7 +161,7 @@ return [
         ]
     ],
 
-    '422' => [
+    422 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Unprocessable Entity (WebDAV; RFC 4918)",
@@ -169,7 +169,7 @@ return [
         ]
     ],
 
-    '423' => [
+    423 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Locked (WebDAV; RFC 4918)",
@@ -177,7 +177,7 @@ return [
         ]
     ],
 
-    '424' => [
+    424 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Failed Dependency (WebDAV; RFC 4918)",
@@ -185,7 +185,7 @@ return [
         ]
     ],
 
-    '426' => [
+    426 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Upgrade Required",
@@ -193,7 +193,7 @@ return [
         ]
     ],
 
-    '428' => [
+    428 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Precondition Required (RFC 6585)",
@@ -201,7 +201,7 @@ return [
         ]
     ],
 
-    '429' => [
+    429 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Too Many Requests (RFC 6585)",
@@ -209,7 +209,7 @@ return [
         ]
     ],
 
-    '431' => [
+    431 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Request Header Fields Too Large (RFC 6585)",
@@ -217,7 +217,7 @@ return [
         ]
     ],
 
-    '451' => [
+    451 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Unavailable For Legal Reasons (RFC 7725)",
@@ -225,7 +225,7 @@ return [
         ]
     ],
 
-    '500' => [
+    500 => [
         'view' => 'vendor.glove.exception',
         'data' => [
             'name' => "Internal System Error",
@@ -233,60 +233,60 @@ return [
         ]
     ],
 
-    '501' => [
+    501 => [
         'name' => "Not Implemented",
         'description' => "This feature isn't available yet, but good on you for trying!"
     ],
 
-    '502' => [
+    502 => [
         'name' => "Bad Gateway",
         'description' => "The server was acting as a gateway or proxy and received an invalid response from the upstream server."
 
     ],
 
-    '503' => [
+    503 => [
         'name' => "Be Right Back",
         'description' => "The server is temporarily down. Please check back later."
 
     ],
 
-    '504' => [
+    504 => [
         'name' => "Gateway Timeout",
         'description' => "The server was acting as a gateway or proxy and did not receive a timely response from the upstream server."
 
     ],
 
-    '505' => [
+    505 => [
         'name' => "HTTP Version Not Supported",
         'description' => "The server does not support the HTTP protocol version used in the request."
 
     ],
 
-    '506' => [
+    506 => [
         'name' => "Variant Also Negotiates (RFC 2295)",
         'description' => "Transparent content negotiation for the request results in a circular reference."
 
     ],
 
-    '507' => [
+    507 => [
         'name' => "Insufficient Storage (WebDAV; RFC 4918)",
         'description' => "The server is unable to store the representation needed to complete the request."
 
     ],
 
-    '508' => [
+    508 => [
         'name' => "Loop Detected (WebDAV; RFC 5842)",
         'description' => "The server detected an infinite loop while processing the request (sent in lieu of '208' => ["
 
     ],
 
-    '510' => [
+    510 => [
         'name' => "Not Extended (RFC 2774)",
         'description' => "Further extensions to the request are required for the server to fulfil it."
 
     ],
 
-    '511' => [
+    511 => [
         'name' => "Network Authentication Required (RFC 6585)",
         'description' => "You'll need to log in to access this page."
     ],

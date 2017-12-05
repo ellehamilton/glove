@@ -19,7 +19,7 @@ class StatusCodeMatcher
 
     /**
      * @param Exception $e
-     * @return string
+     * @return integer
      */
     public function match(Exception $e)
     {
@@ -29,6 +29,6 @@ class StatusCodeMatcher
             }
         }
 
-        return '500';
+        return 500;
     }
 }

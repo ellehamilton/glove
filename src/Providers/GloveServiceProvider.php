@@ -21,7 +21,7 @@ class GloveServiceProvider extends ServiceProvider
     {
         // Override local Handler class to let Glove take control of exception
         // handling globally
-        $this->app->singleton(\App\Exceptions\Handler::class, function ($app) {
+        $this->app->singleton($this->app->config->get('glove.appHandler'), function ($app) {
             return $app->make(GloveExceptionHandler::class);
         });
     }

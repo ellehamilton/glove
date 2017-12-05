@@ -7,11 +7,11 @@ use Exception;
 
 class HandlersRenderer
 {
-    /** @var ExceptionHandlersRenderer */
+    /** @var HandlerRenderer */
     private $renderer;
 
     /**
-     * @param ExceptionHandlerRenderer $renderer
+     * @param HandlerRenderer $renderer
      */
     public function __construct(HandlerRenderer $renderer)
     {

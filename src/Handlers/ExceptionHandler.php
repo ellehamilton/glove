@@ -60,7 +60,7 @@ class ExceptionHandler implements Handler
         $view = $this->config->get('glove-codes.'.$code.'.view');
 
         return $this->responseFactory->make(
-            $this->viewFactory->make($view, $data),
+            $this->viewFactory->make($view, $data)->render(),
             $code
         );
     }
