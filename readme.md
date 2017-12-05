@@ -19,7 +19,7 @@ Laravel Glove is written for Laravel 5.5 and higher, thus also requiring PHP 7.0
 Installation is done via composer
 
 ~~~shell
-composer require derekhamilton/laravel-glove
+composer require derekhamilton/glove
 ~~~
 
 Once installed we need to run
@@ -121,7 +121,7 @@ We can ignore logging on an exception by setting the log level to `ignore`
 'logLevels' => [
     ...
 
-    \App\Exceptions\MyException::class => 'critical',
+    \App\Exceptions\MyException::class => 'ignore',
 
     ...
 ]
