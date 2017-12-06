@@ -143,6 +143,12 @@ We can change the log level from the default 'error' to any of the Laravel log l
 
 Writing a custom exception handler is as simple as implementing the `\DerekHamilton\Glove\Contracts\Handler` then telling it when to run in `config/glove.php`
 
+There's only one function to implement.
+
+~~~php
+public function handle(\Illuminate\Http\Request $request, \Exception $e);
+~~~
+
 #### Custom Response ####
 
 To send back a customized response, return a response from the `handle` method.
@@ -163,6 +169,8 @@ We'll write a custom handler to handle that exception.
 namespace App\Exceptions\Handlers;
 
 use DerekHamilton\Glove\Contracts\Handler;
+use Illuminate\Http\Request;
+use Exception;
 
 class MyHandler implements Handler
 {
