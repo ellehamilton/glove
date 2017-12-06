@@ -19,15 +19,18 @@ class Logger implements LoggerContract
     private $logLevels;
 
     /**
-     * @param Container       $app
+     * @param Container       $container
      * @param LoggerInterface $logger
      * @param Authentication  $auth
      */
-    public function __construct(Container $app, LoggerInterface $logger, Authentication $auth)
-    {
+    public function __construct(
+        Container $container,
+        LoggerInterface $logger,
+        Authentication $auth
+    ) {
         $this->logger    = $logger;
         $this->auth      = $auth;
-        $this->logLevels = $app->config->get('glove.logLevels', []);
+        $this->logLevels = $container->config->get('glove.logLevels', []);
     }
 
     /**

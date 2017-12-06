@@ -10,11 +10,11 @@ class StatusCodeMatcher
     private $codes;
 
     /**
-     * @param Container $app
+     * @param Container $container
      */
-    public function __construct(Container $app)
+    public function __construct(Container $container)
     {
-        $this->codes = $app->config->get('glove.statusCodes', []);
+        $this->codes = $container->config->get('glove.statusCodes', []);
     }
 
     /**

@@ -9,14 +9,14 @@ use Exception;
 class HandlerRenderer
 {
     /** @var Container */
-    private $app;
+    private $container;
 
     /**
-     * @param Container $app
+     * @param Container $container
      */
-    public function __construct(Container $app)
+    public function __construct(Container $container)
     {
-        $this->app = $app;
+        $this->container = $container;
     }
 
     /**
@@ -27,10 +27,7 @@ class HandlerRenderer
      */
     public function render($handlerClass, Request $request, Exception $e)
     {
-        $handler = $this->app->make($handlerClass);
-
-        if ($handler) {
-            return $handler->handle($request, $e);
-        }
+        $handler = $this->container->make($handlerClass);
+        return $handler->handle($request, $e);
     }
 }

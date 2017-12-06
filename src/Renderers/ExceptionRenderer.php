@@ -14,13 +14,13 @@ class ExceptionRenderer
     private $handlers;
 
     /**
-     * @param Container           $app
+     * @param Container            $container
      * @param HandlerTypesRenderer $renderer
      */
-    public function __construct(Container $app, HandlerTypesRenderer $renderer)
+    public function __construct(Container $container, HandlerTypesRenderer $renderer)
     {
         $this->renderer = $renderer;
-        $this->handlers = $app->config->get('glove.handlers', []);
+        $this->handlers = $container->config->get('glove.handlers', []);
     }
 
     /**

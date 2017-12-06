@@ -2,9 +2,11 @@
 namespace DerekHamilton\Tests\Glove\Logging;
 
 use Psr\Log\LoggerInterface;
+use Illuminate\Contracts\Auth\Guard as Authentication;
 use DerekHamilton\Glove\Logging\Logger;
 use Exception;
 use Mockery;
+use Error;
 
 class LoggerTest extends \DerekHamilton\Tests\Glove\TestCase
 {
@@ -12,7 +14,7 @@ class LoggerTest extends \DerekHamilton\Tests\Glove\TestCase
     {
         $logLevel = 'critical';
 
-        $this->app->config->set('glove.logLevels', $codes = [
+        $this->app->config->set('glove.logLevels', [
             Exception::class => $logLevel
         ]);
         $loggerInterface = Mockery::mock(LoggerInterface::class);
@@ -27,7 +29,7 @@ class LoggerTest extends \DerekHamilton\Tests\Glove\TestCase
     {
         $logLevel = 'ignore';
 
-        $this->app->config->set('glove.logLevels', $codes = [
+        $this->app->config->set('glove.logLevels', [
             Exception::class => $logLevel
         ]);
         $loggerInterface = Mockery::mock(LoggerInterface::class);
@@ -35,6 +37,30 @@ class LoggerTest extends \DerekHamilton\Tests\Glove\TestCase
 
         $e = new Exception;
         $logger = $this->app->make(Logger::class, ['logger' => $loggerInterface]);
+        $logger->log($e);
+    }
+
+    public function testNoLogLevels()
+    {
+        $this->app->config->set('glove.logLevels', []);
+        $e = new Exception;
+        $logger = $this->app->make(Logger::class);
+        $this->assertNull($logger->log($e));
+    }
+
+    public function testAuthError()
+    {
+        $logLevel = 'error';
+        $this->app->config->set('glove.logLevels', [
+            Exception::class => $logLevel
+        ]);
+        $loggerInterface = Mockery::mock(LoggerInterface::class);
+        $loggerInterface->shouldReceive($logLevel)->once();
+        $auth = Mockery::mock(Authentication::class);
+        $auth->shouldReceive('id')->once()->andThrow(new Error);
+
+        $e = new Exception;
+        $logger = $this->app->make(Logger::class, ['logger' => $loggerInterface, 'auth' => $auth]);
         $logger->log($e);
     }
 }

@@ -29,16 +29,18 @@ class ExceptionHandler implements Handler
     private $codeMatcher;
 
     /**
-     * @param ResponseFactory $responseFactory
-     * @param ViewFactory     $viewFactory
+     * @param Container         $container
+     * @param ResponseFactory   $responseFactory
+     * @param ViewFactory       $viewFactory
+     * @param StatusCodeMatcher $codeMatcher
      */
     public function __construct(
-        Container $app,
+        Container $container,
         ResponseFactory $responseFactory,
         ViewFactory $viewFactory,
         StatusCodeMatcher $codeMatcher
     ) {
-        $this->config = $app->config;
+        $this->config = $container->config;
         $this->responseFactory = $responseFactory;
         $this->viewFactory = $viewFactory;
         $this->codeMatcher = $codeMatcher;

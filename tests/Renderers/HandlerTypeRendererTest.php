@@ -14,6 +14,9 @@ class HandlerTypeRendererTest extends \DerekHamilton\Tests\Glove\TestCase
     public function testRender()
     {
         $exceptions = [
+            // test HandlerTypeRenderer is skipped over properly
+            HandlerTypeRenderer::class => [
+            ],
             Exception::class => [
                 HandlerStub::class
             ]
