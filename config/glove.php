@@ -40,8 +40,8 @@ return [
 
     // Which HTTP status code to send back for a given exception is defined here
     'statusCodes' => [
-        Symfony\Component\HttpKernel\Exception\NotFoundHttpException::class => '404',
-        Exception::class => '500'
+        Symfony\Component\HttpKernel\Exception\NotFoundHttpException::class => 404,
+        Exception::class => 500
     ]
 
 ];
