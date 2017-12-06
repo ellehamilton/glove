@@ -5,10 +5,10 @@ Catch exceptions with Laravel Glove. The main goal of this package to make is ea
 
 This means
 
- - A simple interface to implement that lets us return a response and be done
- - Cascading handlers simply by omitting a response
- - Specifying status codes and log levels in the config
- - No need to use an error handler when all we want is to output a custom error page, just point to the view in the config
+ - [Custom error pages](#error-pages) that don't need a handler - just point to the view in the config
+ - [Status codes](#http-status-codes) and [log levels](#logging) specified in the config
+ - [Simple interface](#custom-exception-handling) to implement that lets us return a response and be done
+ - [Cascading handlers](#custom-handler-without-a-response) simply by omitting a response
 
 ### Requirements ###
 
@@ -34,6 +34,8 @@ If we don't use auto-discovery, we'll need to add `GloveServiceProvider` to the 
 DerekHamilton\Glove\Providers\GloveServiceProvider::class,
 ~~~
 
+Glove integrates automatically with [Whoops](https://github.com/filp/whoops) with no additional configuration.
+
 ### Error Pages ###
 
 We can easily customize our error pages by updating `config/glove-codes.php`
@@ -45,7 +47,7 @@ Let's send all 404 status codes to our `errors.404` view.
 ~~~php
 ...
 
-'404' => [
+404 => [
     'view' => 'errors.404'
 ]
 
@@ -59,7 +61,7 @@ Additional data can be passed to our view to assist with reusing views for multi
 ~~~php
 ...
 
-'404' => [
+404 => [
     'view' => 'errors.404',
     'data' => [
         'foo' => 'bar'
