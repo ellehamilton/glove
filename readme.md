@@ -81,7 +81,7 @@ Let's make `MyException` emit a `403` status
 'statusCodes' => [
     ...
 
-    \App\Exception\MyException::class => '403',
+    \App\Exception\MyException::class => 403,
 
     ...
 ]
