@@ -93,21 +93,21 @@ e.g if we have the following,
 
 ~~~php
 'statusCodes' => [
-    \App\Exception\MyException::class => '403',
-    \Exception::class => '500',
+    \App\Exception\MyException::class => 403,
+    \Exception::class => 500,
 ];
 ~~~
 
-If we throw `\App\Exception\MyException` the status code will be '403' because it matches and is first. If we reverse the order,
+If we throw `\App\Exception\MyException` the status code will be `403` because it matches and is first. If we reverse the order,
 
 ~~~php
 'statusCodes' => [
-    \Exception::class => '500',
-    \App\Exception\MyException::class => '403',
+    \Exception::class => 500,
+    \App\Exception\MyException::class => 403,
 ];
 ~~~
 
-Then the status code will be '500' because `\App\Exception\MyException` is an instance of `Exception` and is matched first.
+Then the status code will be `500` because `\App\Exception\MyException` is an instance of `Exception` and is matched first.
 
 ### Logging ###
 
