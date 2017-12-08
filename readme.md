@@ -71,6 +71,19 @@ Additional data can be passed to our view to assist with reusing views for multi
 ...
 ~~~
 
+If we want our view to show up as a page regardless of debug settings, we can set the debug override to false so that, for example, 404 pages always appear as such instead of showing a Whoops debug page.
+
+~~~php
+...
+
+404 => [
+    'view' => 'errors.404',
+    'debug' => false
+]
+
+...
+~~~
+
 ### HTTP Status Codes ###
 
 We can specify which status to code for which exceptions in `config/glove.php'
@@ -108,6 +121,8 @@ If we throw `\App\Exception\MyException` the status code will be '403' because i
 ~~~
 
 Then the status code will be '500' because `\App\Exception\MyException` is an instance of `Exception` and is matched first.
+
+`\Symfony\Component\HttpKernel\Exception\HttpException` is a special case. When using `abort(403)` or a variant thereof, excluding the case of a `404` status code, will result in a `HttpException` with the status code contained within. Glove handles this case automatically, and interprets an `HttpException` as whatever status code it contains, so it does not need to be included in the status codes configuration unless we wish to override its handling.
 
 ### Logging ###
 
@@ -225,4 +240,3 @@ class MyHandler implements Handler
     }
 }
 ~~~
-

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Config\Repository as Configuration;
 use Whoops\Run as Whoops;
 use Whoops\Handler\PrettyPageHandler;
+use DerekHamilton\Glove\Http\StatusCodeMatcher;
 use Exception;
 
 /**
@@ -21,8 +22,11 @@ class WhoopsHandler implements Handler
     /** @var ViewFactory */
     private $viewFactory;
 
-    /** @var boolean */
-    private $debug;
+    /** @var Configuration */
+    private $config;
+
+    /** @var StatusCodeMatcher */
+    private $codeMatcher;
 
     /**
      * @param ResponseFactory $responseFactory
@@ -31,16 +35,21 @@ class WhoopsHandler implements Handler
     public function __construct(
         ResponseFactory $responseFactory,
         ViewFactory $viewFactory,
-        Configuration $config
+        Configuration $config,
+        StatusCodeMatcher $codeMatcher
     ) {
         $this->responseFactory = $responseFactory;
         $this->viewFactory = $viewFactory;
-        $this->debug = $config->get('app.debug');
+        $this->config = $config;
+        $this->codeMatcher = $codeMatcher;
     }
 
     public function handle(Request $request, Exception $e)
     {
-        if ($this->debug && class_exists(Whoops::class)) {
+        $debug = $this->config->get('app.debug');
+        $code = $this->codeMatcher->match($e);
+        $showDebug = $this->config->get('glove-codes.'.$code.'.debug', true);
+        if ($debug && $showDebug && class_exists(Whoops::class)) {
             return $this->whoopsResponse($e);
         }
     }

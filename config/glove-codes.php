@@ -35,6 +35,7 @@ return [
 
     404 => [
         'view' => 'vendor.glove.exception',
+        'debug' => false,
         'data' => [
             'name' => "Page Not Found",
             'description' => "The address you were looking for does not exist."

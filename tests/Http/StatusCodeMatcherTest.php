@@ -1,6 +1,7 @@
 <?php
 namespace DerekHamilton\Tests\Glove\Http;
 
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use DerekHamilton\Glove\Http\StatusCodeMatcher;
 use Exception;
 use Mockery;
@@ -17,5 +18,20 @@ class StatusCodeMatcherTest extends \DerekHamilton\Tests\Glove\TestCase
         $e = new Exception;
         $response = $codeMatcher->match($e);
         $this->assertSame($response, $code);
+    }
+
+    public function testMatchHttpException()
+    {
+        $code = '999';
+        $this->app->config->set('glove.statusCodes', $codes = [
+        ]);
+        $codeMatcher = $this->app->make(StatusCodeMatcher::class);
+        $e = new HttpException($code);
+        $response = $codeMatcher->match($e);
+        $this->assertSame($response, $code);
+    }
+
+    public function testNoMatch()
+    {
     }
 }
