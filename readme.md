@@ -84,6 +84,8 @@ If we want our view to show up as a page regardless of debug settings, we can se
 ...
 ~~~
 
+`debug` defaults to `true` when absent.
+
 ### HTTP Status Codes ###
 
 We can specify which status to code for which exceptions in `config/glove.php'
