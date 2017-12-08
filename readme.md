@@ -1,7 +1,7 @@
 Laravel Glove
 ---------------
 
-Catch exceptions with Laravel Glove. The main goal of this package to make is easy as possible to add custom error pages, and create custom error handlers to do whatever we need.
+Catch exceptions with Laravel Glove. The main goal of this package is to make it as easy as possible to add custom error pages and create custom error handlers to do whatever we need.
 
 This means
 
@@ -94,7 +94,7 @@ Let's make `MyException` emit a `403` status
 'statusCodes' => [
     ...
 
-    \App\Exception\MyException::class => '403',
+    \App\Exceptions\MyException::class => 403,
 
     ...
 ]
@@ -106,21 +106,21 @@ e.g if we have the following,
 
 ~~~php
 'statusCodes' => [
-    \App\Exception\MyException::class => '403',
-    \Exception::class => '500',
+    \App\Exceptions\MyException::class => 403,
+    \Exception::class => 500,
 ];
 ~~~
 
-If we throw `\App\Exception\MyException` the status code will be '403' because it matches and is first. If we reverse the order,
+If we throw `\App\Exceptions\MyException` the status code will be `403` because it matches and is first. If we reverse the order,
 
 ~~~php
 'statusCodes' => [
-    \Exception::class => '500',
-    \App\Exception\MyException::class => '403',
+    \Exception::class => 500,
+    \App\Exceptions\MyException::class => 403,
 ];
 ~~~
 
-Then the status code will be '500' because `\App\Exception\MyException` is an instance of `Exception` and is matched first.
+Then the status code will be `500` because `\App\Exceptions\MyException` is an instance of `Exception` and is matched first.
 
 `\Symfony\Component\HttpKernel\Exception\HttpException` is a special case. When using `abort(403)` or a variant thereof, excluding the case of a `404` status code, will result in a `HttpException` with the status code contained within. Glove handles this case automatically, and interprets an `HttpException` as whatever status code it contains, so it does not need to be included in the status codes configuration unless we wish to override its handling.
 
