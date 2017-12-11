@@ -33,5 +33,12 @@ class StatusCodeMatcherTest extends \DerekHamilton\Tests\Glove\TestCase
 
     public function testNoMatch()
     {
+        $code = '999';
+        $this->app->config->set('glove.statusCodes', $codes = [
+        ]);
+        $codeMatcher = $this->app->make(StatusCodeMatcher::class);
+        $e = new Exception($code);
+        $response = $codeMatcher->match($e);
+        $this->assertSame($response, 500);
     }
 }
