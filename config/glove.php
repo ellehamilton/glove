@@ -11,6 +11,10 @@ return [
     'handlers' => [
         // AJAX handlers are only processed if the request is an AJAX request
         'ajax' => [
+            Exception::class => [
+                \DerekHamilton\Glove\Handlers\WhoopsHandler::class,
+                \DerekHamilton\Glove\Handlers\Ajax\ExceptionHandler::class,
+            ]
         ],
 
         // HTTP handlers are for any requests that are not AJAX requests

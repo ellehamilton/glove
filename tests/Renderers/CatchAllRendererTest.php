@@ -16,7 +16,7 @@ class CatchAllRendererTest extends \DerekHamilton\Tests\Glove\TestCase
     public function testRender()
     {
         $viewString = 'foo';
-        $this->app->config->set('glove-codes.500.view', 'vendor.glove.exception');
+        $this->app->config->set('glove-codes.500.view.http', 'vendor.glove.exception');
 
         $view = Mockery::mock(View::class);
         $view->shouldReceive('render')->andReturn($viewString);
@@ -32,7 +32,7 @@ class CatchAllRendererTest extends \DerekHamilton\Tests\Glove\TestCase
         $renderer = $this->app->make(CatchAllRenderer::class, ['responseFactory' => $responseFactory, 'viewFactory' => $viewFactory]);
         $request = $this->app->make(Request::class);
         $e = new Exception;
-        $response = $renderer->render($e, 500);
+        $response = $renderer->render($e, 500, 'http');
         $this->assertInstanceOf(Response::class, $response);
     }
 }

@@ -38,7 +38,13 @@ class CatchAllRenderer
         $this->viewFactory = $viewFactory;
     }
 
-    public function render(Exception $e, $code)
+    /**
+     * @param Exception $e
+     * @param integer   $code
+     * @param string    $method glove-codes.$code.view.$method
+     * @return \Illuminate\View\View
+     */
+    public function render(Exception $e, $code, $method)
     {
         $viewData = $this->config->get('glove-codes.'.$code.'.data');
         $viewData = is_array($viewData) ? $viewData : [];
@@ -50,7 +56,7 @@ class CatchAllRenderer
             ],
             $viewData
         );
-        $view = $this->config->get('glove-codes.'.$code.'.view');
+        $view = $this->config->get('glove-codes.'.$code.'.view.'.$method);
 
         return $this->responseFactory->make(
             $this->viewFactory->make($view, $data)->render(),
