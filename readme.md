@@ -48,7 +48,10 @@ Let's send all 404 status codes to our `errors.404` view.
 ...
 
 404 => [
-    'view' => 'errors.404'
+    'view' => [
+        'errors.404',
+        'vendor.glove.ajax.exception'
+    ]
 ]
 
 ...
@@ -62,7 +65,10 @@ Additional data can be passed to our view to assist with reusing views for multi
 ...
 
 404 => [
-    'view' => 'errors.404',
+    'view' => [
+        'http' => 'errors.404',
+        'ajax' => 'vendor.glove.ajax.exception'
+    ],
     'data' => [
         'foo' => 'bar'
     ]
@@ -77,7 +83,10 @@ If we want our view to show up as a page regardless of debug settings, we can se
 ...
 
 404 => [
-    'view' => 'errors.404',
+    'view' => [
+        'http' => 'errors.404',
+        'ajax' => 'vendor.glove.ajax.exception'
+    ],
     'debug' => false
 ]
 
@@ -85,6 +94,12 @@ If we want our view to show up as a page regardless of debug settings, we can se
 ~~~
 
 `debug` defaults to `true` when absent.
+
+By changing the `ajax` view, we can use our own custom AJAX format. By default, the provided view will result in the format of
+
+~~~javascript
+{ error: { code: 404, message: "404 Page Not Found. The address you were looking for does not exist." } }
+~~~
 
 ### HTTP Status Codes ###
 
