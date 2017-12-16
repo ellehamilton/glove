@@ -26,7 +26,6 @@ class CatchAllRenderer
      * @param Container         $container
      * @param ResponseFactory   $responseFactory
      * @param ViewFactory       $viewFactory
-     * @param StatusCodeMatcher $codeMatcher
      */
     public function __construct(
         Container $container,
@@ -42,9 +41,9 @@ class CatchAllRenderer
      * @param Exception $e
      * @param integer   $code
      * @param string    $method glove-codes.$code.view.$method
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
-    public function render(Exception $e, $code, $method)
+    public function render(Exception $e, int $code, string $method): \Illuminate\Http\Response
     {
         $viewData = $this->config->get('glove-codes.'.$code.'.data');
         $viewData = is_array($viewData) ? $viewData : [];

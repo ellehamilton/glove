@@ -18,13 +18,13 @@ class HandlerTypesRenderer
     }
 
     /**
-     * @param array     $handlerTypes
      * @param string    $type
+     * @param array     $handlerTypes
      * @param Request   $request
      * @param Exception $e
      * @return \Symfony\Component\HttpFoundation\Response|null
      */
-    public function render($type, array $handlerTypes, Request $request, Exception $e)
+    public function render(string $type, array $handlerTypes, Request $request, Exception $e)
     {
         $handlerType = array_get($handlerTypes, $type, []);
         return $this->renderer->render($handlerType, $request, $e);

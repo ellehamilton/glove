@@ -25,7 +25,7 @@ class HandlerRenderer
      * @param Exception $e
      * @return \Symfony\Component\HttpFoundation\Response|null
      */
-    public function render($handlerClass, Request $request, Exception $e)
+    public function render(string $handlerClass, Request $request, Exception $e)
     {
         $handler = $this->container->make($handlerClass);
         return $handler->handle($request, $e);

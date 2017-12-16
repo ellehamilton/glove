@@ -15,15 +15,15 @@ class ExceptionHandlerTest extends \DerekHamilton\Tests\Glove\TestCase
 {
     public function testHandle()
     {
-        $view = Mockery::mock(View::class);
+        $response = Mockery::mock(Response::class);
         $code = 501;
         $e = new HttpException($code);
         $renderer = Mockery::mock(CatchAllRenderer::class);
-        $renderer->shouldReceive('render')->once()->with($e, $code, 'http')->andReturn($view);
+        $renderer->shouldReceive('render')->once()->with($e, $code, 'http')->andReturn($response);
 
         $handler = $this->app->make(ExceptionHandler::class, ['renderer' => $renderer]);
         $request = $this->app->make(Request::class);
         $response = $handler->handle($request, $e);
-        $this->assertInstanceOf(View::class, $response);
+        $this->assertInstanceOf(Response::class, $response);
     }
 }
