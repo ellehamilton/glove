@@ -235,61 +235,84 @@ return [
     ],
 
     501 => [
-        'name' => "Not Implemented",
-        'description' => "This feature isn't available yet, but good on you for trying!"
+        'view' => 'vendor.glove.exception',
+        'data' => [
+            'name' => "Not Implemented",
+            'description' => "This feature isn't available yet, but good on you for trying!"
+        ]
     ],
 
     502 => [
-        'name' => "Bad Gateway",
-        'description' => "The server was acting as a gateway or proxy and received an invalid response from the upstream server."
+        'view' => 'vendor.glove.exception',
+        'data' => [
+            'name' => "Bad Gateway",
+            'description' => "The server was acting as a gateway or proxy and received an invalid response from the upstream server."
+        ]
 
     ],
 
     503 => [
-        'name' => "Be Right Back",
-        'description' => "The server is temporarily down. Please check back later."
-
+        'view' => 'vendor.glove.exception',
+        'data' => [
+            'name' => "Be Right Back",
+            'description' => "The server is temporarily down. Please check back later."
+        ]
     ],
 
     504 => [
-        'name' => "Gateway Timeout",
-        'description' => "The server was acting as a gateway or proxy and did not receive a timely response from the upstream server."
-
+        'view' => 'vendor.glove.exception',
+        'data' => [
+            'name' => "Gateway Timeout",
+            'description' => "The server was acting as a gateway or proxy and did not receive a timely response from the upstream server."
+        ]
     ],
 
     505 => [
-        'name' => "HTTP Version Not Supported",
-        'description' => "The server does not support the HTTP protocol version used in the request."
-
+        'view' => 'vendor.glove.exception',
+        'data' => [
+            'name' => "HTTP Version Not Supported",
+            'description' => "The server does not support the HTTP protocol version used in the request."
+        ]
     ],
 
     506 => [
-        'name' => "Variant Also Negotiates (RFC 2295)",
-        'description' => "Transparent content negotiation for the request results in a circular reference."
-
+        'view' => 'vendor.glove.exception',
+        'data' => [
+            'name' => "Variant Also Negotiates (RFC 2295)",
+            'description' => "Transparent content negotiation for the request results in a circular reference."
+        ]
     ],
 
     507 => [
-        'name' => "Insufficient Storage (WebDAV; RFC 4918)",
-        'description' => "The server is unable to store the representation needed to complete the request."
-
+        'view' => 'vendor.glove.exception',
+        'data' => [
+            'name' => "Insufficient Storage (WebDAV; RFC 4918)",
+            'description' => "The server is unable to store the representation needed to complete the request."
+        ]
     ],
 
     508 => [
-        'name' => "Loop Detected (WebDAV; RFC 5842)",
-        'description' => "The server detected an infinite loop while processing the request (sent in lieu of '208' => ["
-
+        'view' => 'vendor.glove.exception',
+        'data' => [
+            'name' => "Loop Detected (WebDAV; RFC 5842)",
+            'description' => "The server detected an infinite loop while processing the request"
+        ]
     ],
 
     510 => [
-        'name' => "Not Extended (RFC 2774)",
-        'description' => "Further extensions to the request are required for the server to fulfil it."
-
+        'view' => 'vendor.glove.exception',
+        'data' => [
+            'name' => "Not Extended (RFC 2774)",
+            'description' => "Further extensions to the request are required for the server to fulfil it."
+        ]
     ],
 
     511 => [
-        'name' => "Network Authentication Required (RFC 6585)",
-        'description' => "You'll need to log in to access this page."
+        'view' => 'vendor.glove.exception',
+        'data' => [
+            'name' => "Network Authentication Required (RFC 6585)",
+            'description' => "You'll need to log in to access this page."
+        ]
     ],
 
 ];
