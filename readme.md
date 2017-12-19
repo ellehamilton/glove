@@ -49,8 +49,8 @@ Let's send all 404 status codes to our `errors.404` view.
 
 404 => [
     'view' => [
-        'errors.404',
-        'vendor.glove.ajax.exception'
+        'http' => 'errors.404',
+        'ajax' => 'vendor.glove.ajax.exception'
     ]
 ]
 
