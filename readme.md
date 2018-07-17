@@ -103,7 +103,7 @@ By changing the `ajax` view, we can use our own custom AJAX format. By default, 
 
 ### HTTP Status Codes ###
 
-We can specify which status to code for which exceptions in `config/glove.php'
+We can specify which status to code for which exceptions in `config/glove.php`
 
 Let's make `MyException` emit a `403` status
 
