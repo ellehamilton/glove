@@ -185,7 +185,7 @@ public function handle(\Illuminate\Http\Request $request, \Exception $e);
 
 To send back a customized response, return a response from the `handle` method.
 
-Let's say have a custom exception, `MyException`
+Let's say we have a custom exception, `MyException`
 
 ~~~php
 namespace App\Exceptions;
