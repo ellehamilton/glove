@@ -82,4 +82,17 @@ class GloveExceptionHandler implements ExceptionHandler
     {
         $this->consoleRenderer->render($output, $e);
     }
+
+
+    /**
+     * Determine if the exception should be reported.
+     *
+     * @param  \Exception  $e
+     * @return bool
+     */
+    public function shouldReport(Exception $e)
+    {
+        // ignoring is handled using `logLevels` in `config/glove.php`
+        return true;
+    }
 }

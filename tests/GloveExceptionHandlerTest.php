@@ -75,4 +75,18 @@ class GloveExceptionHandlerTest extends \DerekHamilton\Tests\Glove\TestCase
         $handler = new GloveExceptionHandler($exceptionRenderer, $consoleRenderer, $simpleRenderer, $logger);
         $handler->renderForConsole($output, $e);
     }
+
+    public function testShouldReport()
+    {
+        $e = new Exception;
+        $output = Mockery::mock(OutputInterface::class);
+
+        $exceptionRenderer = Mockery::mock(ExceptionRenderer::class);
+        $consoleRenderer = Mockery::mock(ConsoleRenderer::class);
+        $simpleRenderer = Mockery::mock(SimpleExceptionRenderer::class);
+        $logger = Mockery::mock(Logger::class);
+
+        $handler = new GloveExceptionHandler($exceptionRenderer, $consoleRenderer, $simpleRenderer, $logger);
+        $this->assertTrue($handler->shouldReport($e));
+    }
 }
