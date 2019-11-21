@@ -1,11 +1,10 @@
 <?php
 namespace DerekHamilton\Glove\Handlers;
 
-use DerekHamilton\Glove\Contracts\Handler;
-use Illuminate\Http\Request;
-use DerekHamilton\Glove\Renderers\CatchAllRenderer;
 use DerekHamilton\Glove\Http\StatusCodeMatcher;
+use DerekHamilton\Glove\Renderers\CatchAllRenderer;
 use Exception;
+use Illuminate\Http\Request;
 
 abstract class AbstractExceptionHandler
 {
@@ -29,7 +28,7 @@ abstract class AbstractExceptionHandler
         CatchAllRenderer $renderer,
         StatusCodeMatcher $codeMatcher
     ) {
-        $this->renderer = $renderer;
+        $this->renderer    = $renderer;
         $this->codeMatcher = $codeMatcher;
     }
 

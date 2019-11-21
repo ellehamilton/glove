@@ -9,9 +9,9 @@ class GloveServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../../config/glove.php' => config_path('glove.php'),
+            __DIR__.'/../../config/glove.php'       => config_path('glove.php'),
             __DIR__.'/../../config/glove-codes.php' => config_path('glove-codes.php'),
-            __DIR__.'/../../resources/views' => resource_path('views/vendor/glove')
+            __DIR__.'/../../resources/views'        => resource_path('views/vendor/glove')
         ]);
 
         $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'glove');

@@ -1,12 +1,10 @@
 <?php
 namespace DerekHamilton\Glove\Renderers;
 
-use DerekHamilton\Glove\Contracts\Handler;
+use Exception;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory as ViewFactory;
-use Illuminate\Contracts\Container\Container;
-use Illuminate\Http\Request;
-use Exception;
 
 /**
  * Render the exception page for a general exception
@@ -23,18 +21,18 @@ class CatchAllRenderer
     private $viewFactory;
 
     /**
-     * @param Container         $container
-     * @param ResponseFactory   $responseFactory
-     * @param ViewFactory       $viewFactory
+     * @param Container       $container
+     * @param ResponseFactory $responseFactory
+     * @param ViewFactory     $viewFactory
      */
     public function __construct(
         Container $container,
         ResponseFactory $responseFactory,
         ViewFactory $viewFactory
     ) {
-        $this->config = $container->config;
+        $this->config          = $container->config;
         $this->responseFactory = $responseFactory;
-        $this->viewFactory = $viewFactory;
+        $this->viewFactory     = $viewFactory;
     }
 
     /**
@@ -50,7 +48,7 @@ class CatchAllRenderer
 
         $data = array_merge(
             [
-                'e' => $e,
+                'e'    => $e,
                 'code' => $code,
             ],
             $viewData

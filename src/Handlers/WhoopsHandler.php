@@ -2,14 +2,14 @@
 namespace DerekHamilton\Glove\Handlers;
 
 use DerekHamilton\Glove\Contracts\Handler;
+use DerekHamilton\Glove\Http\StatusCodeMatcher;
+use Exception;
+use Illuminate\Config\Repository as Configuration;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Http\Request;
-use Illuminate\Config\Repository as Configuration;
-use Whoops\Run as Whoops;
 use Whoops\Handler\PrettyPageHandler;
-use DerekHamilton\Glove\Http\StatusCodeMatcher;
-use Exception;
+use Whoops\Run as Whoops;
 
 /**
  * Handler for integrating filp/whoops package
@@ -29,8 +29,10 @@ class WhoopsHandler implements Handler
     private $codeMatcher;
 
     /**
-     * @param ResponseFactory $responseFactory
-     * @param ViewFactory     $viewFactory
+     * @param ResponseFactory   $responseFactory
+     * @param ViewFactory       $viewFactory
+     * @param Configuration     $config
+     * @param StatusCodeMatcher $codeMatcher
      */
     public function __construct(
         ResponseFactory $responseFactory,
@@ -39,15 +41,15 @@ class WhoopsHandler implements Handler
         StatusCodeMatcher $codeMatcher
     ) {
         $this->responseFactory = $responseFactory;
-        $this->viewFactory = $viewFactory;
-        $this->config = $config;
-        $this->codeMatcher = $codeMatcher;
+        $this->viewFactory     = $viewFactory;
+        $this->config          = $config;
+        $this->codeMatcher     = $codeMatcher;
     }
 
     public function handle(Request $request, Exception $e)
     {
-        $debug = $this->config->get('app.debug');
-        $code = $this->codeMatcher->match($e);
+        $debug     = $this->config->get('app.debug');
+        $code      = $this->codeMatcher->match($e);
         $showDebug = $this->config->get('glove-codes.'.$code.'.debug', true);
         if ($debug && $showDebug && class_exists(Whoops::class)) {
             return $this->whoopsResponse($e);

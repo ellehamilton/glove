@@ -1,10 +1,10 @@
 <?php
 namespace DerekHamilton\Glove\Logging;
 
-use Psr\Log\LoggerInterface;
-use Illuminate\Contracts\Container\Container;
-use Illuminate\Contracts\Auth\Guard as Authentication;
 use DerekHamilton\Glove\Contracts\Logging\Logger as LoggerContract;
+use Illuminate\Contracts\Auth\Guard as Authentication;
+use Illuminate\Contracts\Container\Container;
+use Psr\Log\LoggerInterface;
 use Throwable;
 
 class Logger implements LoggerContract
@@ -64,7 +64,7 @@ class Logger implements LoggerContract
         try {
             return array_filter([
                 'userId' => $this->auth->id(),
-                'email' => $this->auth->user() ? $this->auth->user()->email : null,
+                'email'  => $this->auth->user() ? $this->auth->user()->email : null,
             ]);
         } catch (Throwable $e) {
             return [];

@@ -1,8 +1,8 @@
 <?php
 namespace DerekHamilton\Glove\Renderers;
 
-use Illuminate\Http\Request;
 use Exception;
+use Illuminate\Http\Request;
 
 class HandlerTypesRenderer
 {

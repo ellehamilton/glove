@@ -1,9 +1,9 @@
 <?php
 namespace DerekHamilton\Glove\Http;
 
-use Symfony\Component\HttpKernel\Exception\HttpException;
-use Illuminate\Contracts\Container\Container;
 use Exception;
+use Illuminate\Contracts\Container\Container;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class StatusCodeMatcher
 {

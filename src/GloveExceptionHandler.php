@@ -1,12 +1,12 @@
 <?php
 namespace DerekHamilton\Glove;
 
-use Illuminate\Contracts\Debug\ExceptionHandler;
-use DerekHamilton\Glove\Renderers\ExceptionRenderer;
-use DerekHamilton\Glove\Renderers\ConsoleRenderer;
-use DerekHamilton\Glove\Renderers\SimpleExceptionRenderer;
 use DerekHamilton\Glove\Logging\Logger;
+use DerekHamilton\Glove\Renderers\ConsoleRenderer;
+use DerekHamilton\Glove\Renderers\ExceptionRenderer;
+use DerekHamilton\Glove\Renderers\SimpleExceptionRenderer;
 use Exception;
+use Illuminate\Contracts\Debug\ExceptionHandler;
 
 /**
  * Global Exception Handler
@@ -49,7 +49,7 @@ class GloveExceptionHandler implements ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param  \Exception  $e
+     * @param \Exception $e
      * @return mixed
      *
      * @throws \Exception
@@ -62,8 +62,8 @@ class GloveExceptionHandler implements ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $e
+     * @param \Illuminate\Http\Request $request
+     * @param \Exception               $e
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function render($request, Exception $e)
@@ -74,8 +74,8 @@ class GloveExceptionHandler implements ExceptionHandler
     /**
      * Render an exception to the console.
      *
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @param  \Exception  $e
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param \Exception                                        $e
      * @return void
      */
     public function renderForConsole($output, Exception $e)
@@ -87,7 +87,7 @@ class GloveExceptionHandler implements ExceptionHandler
     /**
      * Determine if the exception should be reported.
      *
-     * @param  \Exception  $e
+     * @param \Exception $e
      * @return bool
      */
     public function shouldReport(Exception $e)

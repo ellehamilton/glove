@@ -1,10 +1,9 @@
 <?php
 namespace DerekHamilton\Glove\Renderers;
 
-use Illuminate\Http\Request;
+use Exception;
 use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\Console\Output\OutputInterface;
-use Exception;
 
 class ConsoleRenderer
 {
@@ -22,8 +21,8 @@ class ConsoleRenderer
     /**
      * Render an exception to the console.
      *
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @param  \Exception  $e
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param \Exception                                        $e
      * @return void
      */
     public function render(OutputInterface $output, Exception $e)

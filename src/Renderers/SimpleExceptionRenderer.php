@@ -1,8 +1,8 @@
 <?php
 namespace DerekHamilton\Glove\Renderers;
 
-use Illuminate\Routing\ResponseFactory;
 use Exception;
+use Illuminate\Routing\ResponseFactory;
 
 /**
  * Fallback renderer of simple text output

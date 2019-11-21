@@ -1,8 +1,8 @@
 <?php
 namespace DerekHamilton\Glove\Contracts;
 
-use Illuminate\Http\Request;
 use Exception;
+use Illuminate\Http\Request;
 
 interface Handler
 {

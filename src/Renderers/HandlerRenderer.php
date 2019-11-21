@@ -1,10 +1,9 @@
 <?php
 namespace DerekHamilton\Glove\Renderers;
 
-use Illuminate\Http\Request;
-use Illuminate\Contracts\Container\Container;
-use DerekHamilton\Glove\Contracts\Handler;
 use Exception;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Http\Request;
 
 class HandlerRenderer
 {

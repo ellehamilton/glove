@@ -1,9 +1,9 @@
 <?php
 namespace DerekHamilton\Glove\Renderers;
 
-use Illuminate\Http\Request;
-use Illuminate\Contracts\Container\Container;
 use Exception;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Http\Request;
 
 class ExceptionRenderer
 {
