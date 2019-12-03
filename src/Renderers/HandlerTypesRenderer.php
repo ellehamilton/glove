@@ -3,6 +3,7 @@ namespace DerekHamilton\Glove\Renderers;
 
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class HandlerTypesRenderer
 {
@@ -26,7 +27,7 @@ class HandlerTypesRenderer
      */
     public function render(string $type, array $handlerTypes, Request $request, Exception $e)
     {
-        $handlerType = array_get($handlerTypes, $type, []);
+        $handlerType = Arr::get($handlerTypes, $type, []);
         return $this->renderer->render($handlerType, $request, $e);
     }
 }
