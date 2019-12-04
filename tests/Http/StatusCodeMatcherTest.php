@@ -10,7 +10,7 @@ class StatusCodeMatcherTest extends \DerekHamilton\Tests\Glove\TestCase
 {
     public function testMatch()
     {
-        $code = '999';
+        $code = 999;
         $this->app->config->set('glove.statusCodes', $codes = [
             Exception::class => $code
         ]);
@@ -22,7 +22,7 @@ class StatusCodeMatcherTest extends \DerekHamilton\Tests\Glove\TestCase
 
     public function testMatchHttpException()
     {
-        $code = '999';
+        $code = 999;
         $this->app->config->set('glove.statusCodes', $codes = [
         ]);
         $codeMatcher = $this->app->make(StatusCodeMatcher::class);
@@ -33,7 +33,7 @@ class StatusCodeMatcherTest extends \DerekHamilton\Tests\Glove\TestCase
 
     public function testNoMatch()
     {
-        $code = '999';
+        $code = 999;
         $this->app->config->set('glove.statusCodes', $codes = [
         ]);
         $codeMatcher = $this->app->make(StatusCodeMatcher::class);
