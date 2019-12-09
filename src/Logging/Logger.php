@@ -2,7 +2,6 @@
 namespace DerekHamilton\Glove\Logging;
 
 use DerekHamilton\Glove\Contracts\Logging\Logger as LoggerContract;
-use Illuminate\Contracts\Auth\Guard as Authentication;
 use Illuminate\Contracts\Container\Container;
 use Psr\Log\LoggerInterface;
 use Throwable;
@@ -12,24 +11,18 @@ class Logger implements LoggerContract
     /** @var LoggerInterface */
     private $logger;
 
-    /** @var Authentication */
-    private $auth;
-
     /** @var array */
     private $logLevels;
 
     /**
      * @param Container       $container
      * @param LoggerInterface $logger
-     * @param Authentication  $auth
      */
     public function __construct(
         Container $container,
-        LoggerInterface $logger,
-        Authentication $auth
+        LoggerInterface $logger
     ) {
         $this->logger    = $logger;
-        $this->auth      = $auth;
         $this->logLevels = $container->config->get('glove.logLevels', []);
     }
 
@@ -61,13 +54,6 @@ class Logger implements LoggerContract
      */
     private function context()
     {
-        try {
-            return array_filter([
-                'userId' => $this->auth->id(),
-                'email'  => $this->auth->user() ? $this->auth->user()->email : null,
-            ]);
-        } catch (Throwable $e) {
-            return [];
-        }
+        return [];
     }
 }

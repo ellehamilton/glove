@@ -1,12 +1,10 @@
 <?php
 namespace DerekHamilton\Tests\Glove\Logging;
 
-use Psr\Log\LoggerInterface;
-use Illuminate\Contracts\Auth\Guard as Authentication;
 use DerekHamilton\Glove\Logging\Logger;
 use Exception;
 use Mockery;
-use Error;
+use Psr\Log\LoggerInterface;
 
 class LoggerTest extends \DerekHamilton\Tests\Glove\TestCase
 {
@@ -20,7 +18,7 @@ class LoggerTest extends \DerekHamilton\Tests\Glove\TestCase
         $loggerInterface = Mockery::mock(LoggerInterface::class);
         $loggerInterface->shouldReceive($logLevel)->once();
 
-        $e = new Exception;
+        $e      = new Exception;
         $logger = $this->app->make(Logger::class, ['logger' => $loggerInterface]);
         $logger->log($e);
     }
@@ -35,7 +33,7 @@ class LoggerTest extends \DerekHamilton\Tests\Glove\TestCase
         $loggerInterface = Mockery::mock(LoggerInterface::class);
         $loggerInterface->shouldNotReceive($logLevel);
 
-        $e = new Exception;
+        $e      = new Exception;
         $logger = $this->app->make(Logger::class, ['logger' => $loggerInterface]);
         $logger->log($e);
     }
@@ -43,7 +41,7 @@ class LoggerTest extends \DerekHamilton\Tests\Glove\TestCase
     public function testNoLogLevels()
     {
         $this->app->config->set('glove.logLevels', []);
-        $e = new Exception;
+        $e      = new Exception;
         $logger = $this->app->make(Logger::class);
         $this->assertNull($logger->log($e));
     }
@@ -56,11 +54,9 @@ class LoggerTest extends \DerekHamilton\Tests\Glove\TestCase
         ]);
         $loggerInterface = Mockery::mock(LoggerInterface::class);
         $loggerInterface->shouldReceive($logLevel)->once();
-        $auth = Mockery::mock(Authentication::class);
-        $auth->shouldReceive('id')->once()->andThrow(new Error);
 
-        $e = new Exception;
-        $logger = $this->app->make(Logger::class, ['logger' => $loggerInterface, 'auth' => $auth]);
+        $e      = new Exception;
+        $logger = $this->app->make(Logger::class, ['logger' => $loggerInterface]);
         $logger->log($e);
     }
 }
