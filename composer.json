@@ -1,5 +1,5 @@
 {
-    "name": "derekhamilton/glove",
+    "name": "ellehamilton/glove",
     "description": "Exception handling for Laravel that catches like a glove.",
     "keywords": ["laravel", "exceptions", "exception", "handling"],
     "license": "MIT",
