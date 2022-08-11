@@ -1,18 +1,18 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Renderers;
+namespace ElleHamilton\Tests\Glove\Renderers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Config\Repository as Configuration;
-use DerekHamilton\Glove\Renderers\ExceptionRenderer;
-use DerekHamilton\Glove\Renderers\HandlerTypesRenderer;
-use DerekHamilton\Glove\Contracts\Handler;
-use DerekHamilton\Tests\Glove\Stubs\HandlerStub;
+use ElleHamilton\Glove\Renderers\ExceptionRenderer;
+use ElleHamilton\Glove\Renderers\HandlerTypesRenderer;
+use ElleHamilton\Glove\Contracts\Handler;
+use ElleHamilton\Tests\Glove\Stubs\HandlerStub;
 use Exception;
 use Mockery;
 
-class ExceptionRendererTest extends \DerekHamilton\Tests\Glove\TestCase
+class ExceptionRendererTest extends \ElleHamilton\Tests\Glove\TestCase
 {
     public function testAjax()
     {

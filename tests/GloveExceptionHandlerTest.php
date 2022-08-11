@@ -1,18 +1,18 @@
 <?php
-namespace DerekHamilton\Tests\Glove;
+namespace ElleHamilton\Tests\Glove;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Symfony\Component\Console\Output\OutputInterface;
-use DerekHamilton\Glove\Renderers\ExceptionRenderer;
-use DerekHamilton\Glove\Renderers\ConsoleRenderer;
-use DerekHamilton\Glove\Renderers\SimpleExceptionRenderer;
-use DerekHamilton\Glove\Logging\Logger;
-use DerekHamilton\Glove\GloveExceptionHandler;
+use ElleHamilton\Glove\Renderers\ExceptionRenderer;
+use ElleHamilton\Glove\Renderers\ConsoleRenderer;
+use ElleHamilton\Glove\Renderers\SimpleExceptionRenderer;
+use ElleHamilton\Glove\Logging\Logger;
+use ElleHamilton\Glove\GloveExceptionHandler;
 use Exception;
 use Mockery;
 
-class GloveExceptionHandlerTest extends \DerekHamilton\Tests\Glove\TestCase
+class GloveExceptionHandlerTest extends \ElleHamilton\Tests\Glove\TestCase
 {
     public function testReport()
     {

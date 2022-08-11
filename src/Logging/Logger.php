@@ -1,7 +1,7 @@
 <?php
-namespace DerekHamilton\Glove\Logging;
+namespace ElleHamilton\Glove\Logging;
 
-use DerekHamilton\Glove\Contracts\Logging\Logger as LoggerContract;
+use ElleHamilton\Glove\Contracts\Logging\Logger as LoggerContract;
 use Illuminate\Contracts\Container\Container;
 use Psr\Log\LoggerInterface;
 use Throwable;

@@ -1,5 +1,5 @@
 <?php
-namespace DerekHamilton\Glove\Contracts\Logging;
+namespace ElleHamilton\Glove\Contracts\Logging;
 
 use Throwable;
 

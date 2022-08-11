@@ -1,8 +1,8 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Stubs;
+namespace ElleHamilton\Tests\Glove\Stubs;
 
 use Illuminate\Http\Request;
-use DerekHamilton\Glove\Contracts\Handler;
+use ElleHamilton\Glove\Contracts\Handler;
 use Exception;
 
 class HandlerStub implements Handler

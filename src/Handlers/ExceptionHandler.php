@@ -1,7 +1,7 @@
 <?php
-namespace DerekHamilton\Glove\Handlers;
+namespace ElleHamilton\Glove\Handlers;
 
-use DerekHamilton\Glove\Contracts\Handler;
+use ElleHamilton\Glove\Contracts\Handler;
 
 /**
  * General Exception Handler

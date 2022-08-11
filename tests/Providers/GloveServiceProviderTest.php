@@ -1,13 +1,13 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Handlers;
+namespace ElleHamilton\Tests\Glove\Handlers;
 
-use DerekHamilton\Glove\Providers\GloveServiceProvider;
-use DerekHamilton\Glove\GloveExceptionHandler;
-use DerekHamilton\Tests\Glove\Stubs\AppHandlerStub;
+use ElleHamilton\Glove\Providers\GloveServiceProvider;
+use ElleHamilton\Glove\GloveExceptionHandler;
+use ElleHamilton\Tests\Glove\Stubs\AppHandlerStub;
 use Exception;
 use Mockery;
 
-class GloveServiceProviderTest extends \DerekHamilton\Tests\Glove\TestCase
+class GloveServiceProviderTest extends \ElleHamilton\Tests\Glove\TestCase
 {
     public function testBoot()
     {

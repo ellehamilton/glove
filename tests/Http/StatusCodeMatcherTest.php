@@ -1,12 +1,12 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Http;
+namespace ElleHamilton\Tests\Glove\Http;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use DerekHamilton\Glove\Http\StatusCodeMatcher;
+use ElleHamilton\Glove\Http\StatusCodeMatcher;
 use Exception;
 use Mockery;
 
-class StatusCodeMatcherTest extends \DerekHamilton\Tests\Glove\TestCase
+class StatusCodeMatcherTest extends \ElleHamilton\Tests\Glove\TestCase
 {
     public function testMatch()
     {

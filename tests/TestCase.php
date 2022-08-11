@@ -1,5 +1,5 @@
 <?php
-namespace DerekHamilton\Tests\Glove;
+namespace ElleHamilton\Tests\Glove;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
 

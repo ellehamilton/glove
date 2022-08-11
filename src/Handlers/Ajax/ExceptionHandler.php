@@ -1,8 +1,8 @@
 <?php
-namespace DerekHamilton\Glove\Handlers\Ajax;
+namespace ElleHamilton\Glove\Handlers\Ajax;
 
-use DerekHamilton\Glove\Contracts\Handler;
-use DerekHamilton\Glove\Handlers\AbstractExceptionHandler;
+use ElleHamilton\Glove\Contracts\Handler;
+use ElleHamilton\Glove\Handlers\AbstractExceptionHandler;
 
 /**
  * General AJAX Exception Handler

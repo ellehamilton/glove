@@ -1,13 +1,13 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Renderers;
+namespace ElleHamilton\Tests\Glove\Renderers;
 
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Application as ConsoleApplication;
-use DerekHamilton\Glove\Renderers\ConsoleRenderer;
+use ElleHamilton\Glove\Renderers\ConsoleRenderer;
 use Exception;
 use Mockery;
 
-class ConsoleRendererTest extends \DerekHamilton\Tests\Glove\TestCase
+class ConsoleRendererTest extends \ElleHamilton\Tests\Glove\TestCase
 {
     public function testRender()
     {

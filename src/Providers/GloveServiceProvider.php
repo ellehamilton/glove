@@ -1,7 +1,7 @@
 <?php
-namespace DerekHamilton\Glove\Providers;
+namespace ElleHamilton\Glove\Providers;
 
-use DerekHamilton\Glove\GloveExceptionHandler;
+use ElleHamilton\Glove\GloveExceptionHandler;
 use Illuminate\Support\ServiceProvider;
 
 class GloveServiceProvider extends ServiceProvider

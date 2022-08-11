@@ -1,15 +1,15 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Renderers;
+namespace ElleHamilton\Tests\Glove\Renderers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use DerekHamilton\Glove\Renderers\ExceptionRenderer;
-use DerekHamilton\Glove\Renderers\HandlerTypeRenderer;
-use DerekHamilton\Tests\Glove\Stubs\HandlerStub;
+use ElleHamilton\Glove\Renderers\ExceptionRenderer;
+use ElleHamilton\Glove\Renderers\HandlerTypeRenderer;
+use ElleHamilton\Tests\Glove\Stubs\HandlerStub;
 use Exception;
 use Mockery;
 
-class HandlerTypeRendererTest extends \DerekHamilton\Tests\Glove\TestCase
+class HandlerTypeRendererTest extends \ElleHamilton\Tests\Glove\TestCase
 {
     public function testRender()
     {

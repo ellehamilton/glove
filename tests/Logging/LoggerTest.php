@@ -1,12 +1,12 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Logging;
+namespace ElleHamilton\Tests\Glove\Logging;
 
-use DerekHamilton\Glove\Logging\Logger;
+use ElleHamilton\Glove\Logging\Logger;
 use Exception;
 use Mockery;
 use Psr\Log\LoggerInterface;
 
-class LoggerTest extends \DerekHamilton\Tests\Glove\TestCase
+class LoggerTest extends \ElleHamilton\Tests\Glove\TestCase
 {
     public function testLog()
     {

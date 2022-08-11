@@ -1,5 +1,5 @@
 <?php
-namespace DerekHamilton\Glove\Renderers;
+namespace ElleHamilton\Glove\Renderers;
 
 use Exception;
 use Illuminate\Contracts\Container\Container;

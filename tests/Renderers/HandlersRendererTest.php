@@ -1,14 +1,14 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Renderers;
+namespace ElleHamilton\Tests\Glove\Renderers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use DerekHamilton\Glove\Renderers\HandlersRenderer;
-use DerekHamilton\Tests\Glove\Stubs\HandlerStub;
+use ElleHamilton\Glove\Renderers\HandlersRenderer;
+use ElleHamilton\Tests\Glove\Stubs\HandlerStub;
 use Exception;
 use Mockery;
 
-class HandlersRendererTest extends \DerekHamilton\Tests\Glove\TestCase
+class HandlersRendererTest extends \ElleHamilton\Tests\Glove\TestCase
 {
     public function testRender()
     {

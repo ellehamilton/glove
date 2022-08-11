@@ -1,16 +1,16 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Handlers;
+namespace ElleHamilton\Tests\Glove\Handlers;
 
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Config\Repository as Configuration;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use DerekHamilton\Glove\Handlers\WhoopsHandler;
+use ElleHamilton\Glove\Handlers\WhoopsHandler;
 use Exception;
 use Mockery;
 
-class WhoopsHandlerTest extends \DerekHamilton\Tests\Glove\TestCase
+class WhoopsHandlerTest extends \ElleHamilton\Tests\Glove\TestCase
 {
     // test that Whoops isn't triggered if the application is not in
     // debug mode

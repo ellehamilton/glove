@@ -1,8 +1,8 @@
 <?php
-namespace DerekHamilton\Glove\Handlers;
+namespace ElleHamilton\Glove\Handlers;
 
-use DerekHamilton\Glove\Contracts\Handler;
-use DerekHamilton\Glove\Http\StatusCodeMatcher;
+use ElleHamilton\Glove\Contracts\Handler;
+use ElleHamilton\Glove\Http\StatusCodeMatcher;
 use Exception;
 use Illuminate\Config\Repository as Configuration;
 use Illuminate\Contracts\Routing\ResponseFactory;

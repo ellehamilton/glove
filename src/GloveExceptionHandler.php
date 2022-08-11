@@ -1,11 +1,12 @@
 <?php
-namespace DerekHamilton\Glove;
 
-use DerekHamilton\Glove\Logging\Logger;
-use DerekHamilton\Glove\Renderers\ConsoleRenderer;
-use DerekHamilton\Glove\Renderers\ExceptionRenderer;
-use DerekHamilton\Glove\Renderers\SimpleExceptionRenderer;
-use Exception;
+namespace ElleHamilton\Glove;
+
+use ElleHamilton\Glove\Logging\Logger;
+use ElleHamilton\Glove\Renderers\ConsoleRenderer;
+use ElleHamilton\Glove\Renderers\ExceptionRenderer;
+use ElleHamilton\Glove\Renderers\SimpleExceptionRenderer;
+use Throwable;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 
 /**
@@ -49,12 +50,12 @@ class GloveExceptionHandler implements ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param \Exception $e
+     * @param \Throwable $e
      * @return mixed
      *
-     * @throws \Exception
+     * @throws \Throwable
      */
-    public function report(Exception $e)
+    public function report(Throwable $e)
     {
         $this->logger->log($e);
     }
@@ -63,10 +64,10 @@ class GloveExceptionHandler implements ExceptionHandler
      * Render an exception into an HTTP response.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Exception               $e
+     * @param \Throwable               $e
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function render($request, Exception $e)
+    public function render($request, Throwable $e)
     {
         return $this->exceptionRenderer->render($request, $e) ?: $this->simpleRenderer->render($e);
     }
@@ -75,10 +76,10 @@ class GloveExceptionHandler implements ExceptionHandler
      * Render an exception to the console.
      *
      * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Exception                                        $e
+     * @param \Throwable                                        $e
      * @return void
      */
-    public function renderForConsole($output, Exception $e)
+    public function renderForConsole($output, Throwable $e)
     {
         $this->consoleRenderer->render($output, $e);
     }
@@ -87,10 +88,10 @@ class GloveExceptionHandler implements ExceptionHandler
     /**
      * Determine if the exception should be reported.
      *
-     * @param \Exception $e
+     * @param \Throwable $e
      * @return bool
      */
-    public function shouldReport(Exception $e)
+    public function shouldReport(Throwable $e)
     {
         // ignoring is handled using `logLevels` in `config/glove.php`
         return true;

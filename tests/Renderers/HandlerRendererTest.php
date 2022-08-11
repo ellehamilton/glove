@@ -1,17 +1,17 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Renderers;
+namespace ElleHamilton\Tests\Glove\Renderers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Config\Repository as Configuration;
-use DerekHamilton\Glove\Renderers\ExceptionRenderer;
-use DerekHamilton\Glove\Renderers\HandlerRenderer;
-use DerekHamilton\Tests\Glove\Stubs\HandlerStub;
+use ElleHamilton\Glove\Renderers\ExceptionRenderer;
+use ElleHamilton\Glove\Renderers\HandlerRenderer;
+use ElleHamilton\Tests\Glove\Stubs\HandlerStub;
 use Exception;
 use Mockery;
 
-class HandlerRendererTest extends \DerekHamilton\Tests\Glove\TestCase
+class HandlerRendererTest extends \ElleHamilton\Tests\Glove\TestCase
 {
     public function testRender()
     {
