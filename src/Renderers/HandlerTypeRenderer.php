@@ -1,7 +1,8 @@
 <?php
+
 namespace ElleHamilton\Glove\Renderers;
 
-use Exception;
+use Throwable;
 use Illuminate\Http\Request;
 
 class HandlerTypeRenderer
@@ -20,10 +21,10 @@ class HandlerTypeRenderer
     /**
      * @param array     $exceptions
      * @param Request   $request
-     * @param Exception $e
+     * @param Throwable $e
      * @return \Symfony\Component\HttpFoundation\Response|null
      */
-    public function render(array $exceptions, Request $request, Exception $e)
+    public function render(array $exceptions, Request $request, Throwable $e)
     {
         foreach ($exceptions as $exceptionClass => $handlers) {
             if (!($e instanceof $exceptionClass)) {
