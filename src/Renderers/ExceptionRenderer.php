@@ -1,7 +1,8 @@
 <?php
+
 namespace ElleHamilton\Glove\Renderers;
 
-use Exception;
+use Throwable;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Http\Request;
 
@@ -25,10 +26,10 @@ class ExceptionRenderer
 
     /**
      * @param Request   $request
-     * @param Exception $e
+     * @param Throwable $e
      * @return \Symfony\Component\HttpFoundation\Response|null
      */
-    public function render(Request $request, Exception $e)
+    public function render(Request $request, Throwable $e)
     {
         if ($request->ajax()) {
             $response = $this->renderer->render('ajax', $this->handlers, $request, $e);
