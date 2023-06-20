@@ -4,7 +4,7 @@ namespace ElleTheDev\Glove\Handlers;
 
 use ElleTheDev\Glove\Http\StatusCodeMatcher;
 use ElleTheDev\Glove\Renderers\CatchAllRenderer;
-use Exception;
+use Throwable;
 use Illuminate\Http\Request;
 
 abstract class AbstractExceptionHandler
@@ -33,7 +33,7 @@ abstract class AbstractExceptionHandler
         $this->codeMatcher = $codeMatcher;
     }
 
-    public function handle(Request $request, Exception $e)
+    public function handle(Request $request, Throwable $e)
     {
         $code = $this->codeMatcher->match($e);
         return $this->renderer->render($e, $code, $this->method);
