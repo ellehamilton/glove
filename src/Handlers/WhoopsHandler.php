@@ -4,7 +4,7 @@ namespace ElleTheDev\Glove\Handlers;
 
 use ElleTheDev\Glove\Contracts\Handler;
 use ElleTheDev\Glove\Http\StatusCodeMatcher;
-use Exception;
+use Throwable;
 use Illuminate\Config\Repository as Configuration;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory as ViewFactory;
@@ -47,7 +47,7 @@ class WhoopsHandler implements Handler
         $this->codeMatcher     = $codeMatcher;
     }
 
-    public function handle(Request $request, Exception $e)
+    public function handle(Request $request, Throwable $e)
     {
         $debug     = $this->config->get('app.debug');
         $code      = $this->codeMatcher->match($e);
@@ -58,10 +58,10 @@ class WhoopsHandler implements Handler
     }
 
     /**
-     * @param Exception $e
+     * @param Throwable $e
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function whoopsResponse(Exception $e)
+    private function whoopsResponse(Throwable $e)
     {
         $whoops = new Whoops();
         $whoops->pushHandler(new PrettyPageHandler());
