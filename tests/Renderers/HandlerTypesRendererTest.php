@@ -1,15 +1,16 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Renderers;
+
+namespace ElleTheDev\Tests\Glove\Renderers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use DerekHamilton\Glove\Renderers\ExceptionRenderer;
-use DerekHamilton\Glove\Renderers\HandlerTypesRenderer;
-use DerekHamilton\Tests\Glove\Stubs\HandlerStub;
+use ElleTheDev\Glove\Renderers\ExceptionRenderer;
+use ElleTheDev\Glove\Renderers\HandlerTypesRenderer;
+use ElleTheDev\Tests\Glove\Stubs\HandlerStub;
 use Exception;
 use Mockery;
 
-class HandlerTypesRendererTest extends \DerekHamilton\Tests\Glove\TestCase
+class HandlerTypesRendererTest extends \ElleTheDev\Tests\Glove\TestCase
 {
     public function testRender()
     {
@@ -22,7 +23,7 @@ class HandlerTypesRendererTest extends \DerekHamilton\Tests\Glove\TestCase
         ];
         $renderer = $this->app->make(HandlerTypesRenderer::class);
         $request = $this->app->make(Request::class);
-        $e = new Exception;
+        $e = new Exception();
         $response = $renderer->render('ajax', $handlerTypes, $request, $e);
 
         $this->assertInstanceOf(Response::class, $response);
@@ -36,7 +37,7 @@ class HandlerTypesRendererTest extends \DerekHamilton\Tests\Glove\TestCase
         ];
         $renderer = $this->app->make(HandlerTypesRenderer::class);
         $request = $this->app->make(Request::class);
-        $e = new Exception;
+        $e = new Exception();
         $response = $renderer->render('ajax', $handlerTypes, $request, $e);
 
         $this->assertNull($response);

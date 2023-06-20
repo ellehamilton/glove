@@ -1,7 +1,8 @@
 <?php
-namespace DerekHamilton\Glove\Renderers;
 
-use Exception;
+namespace ElleTheDev\Glove\Renderers;
+
+use Throwable;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -21,10 +22,10 @@ class HandlersRenderer
     /**
      * @param array     $handlers
      * @param Request   $request
-     * @param Exception $e
+     * @param Throwable $e
      * @return \Symfony\Component\HttpFoundation\Response|null
      */
-    public function render(array $handlers, Request $request, Exception $e)
+    public function render(array $handlers, Request $request, Throwable $e)
     {
         foreach ($handlers as $handler) {
             $response = $this->renderer->render($handler, $request, $e);

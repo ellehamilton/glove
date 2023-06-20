@@ -1,5 +1,6 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Stubs;
+
+namespace ElleTheDev\Tests\Glove\Stubs;
 
 class AppHandlerStub
 {

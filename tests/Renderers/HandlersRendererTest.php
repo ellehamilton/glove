@@ -1,14 +1,15 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Renderers;
+
+namespace ElleTheDev\Tests\Glove\Renderers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use DerekHamilton\Glove\Renderers\HandlersRenderer;
-use DerekHamilton\Tests\Glove\Stubs\HandlerStub;
+use ElleTheDev\Glove\Renderers\HandlersRenderer;
+use ElleTheDev\Tests\Glove\Stubs\HandlerStub;
 use Exception;
 use Mockery;
 
-class HandlersRendererTest extends \DerekHamilton\Tests\Glove\TestCase
+class HandlersRendererTest extends \ElleTheDev\Tests\Glove\TestCase
 {
     public function testRender()
     {
@@ -17,7 +18,7 @@ class HandlersRendererTest extends \DerekHamilton\Tests\Glove\TestCase
         ];
         $renderer = $this->app->make(HandlersRenderer::class);
         $request = $this->app->make(Request::class);
-        $e = new Exception;
+        $e = new Exception();
         $response = $renderer->render($handlers, $request, $e);
 
         $this->assertInstanceOf(Response::class, $response);
@@ -29,7 +30,7 @@ class HandlersRendererTest extends \DerekHamilton\Tests\Glove\TestCase
         ];
         $renderer = $this->app->make(HandlersRenderer::class);
         $request = $this->app->make(Request::class);
-        $e = new Exception;
+        $e = new Exception();
         $response = $renderer->render($handlers, $request, $e);
 
         $this->assertNull($response);

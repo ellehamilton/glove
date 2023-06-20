@@ -1,7 +1,8 @@
 <?php
-namespace DerekHamilton\Glove\Renderers;
 
-use Exception;
+namespace ElleTheDev\Glove\Renderers;
+
+use Throwable;
 use Illuminate\Routing\ResponseFactory;
 
 /**
@@ -21,10 +22,10 @@ class SimpleExceptionRenderer
     }
 
     /**
-     * @param Exception $e
+     * @param Throwable $e
      * @return \Illuminate\Http\Response
      */
-    public function render(Exception $e)
+    public function render(Throwable $e)
     {
         return $this->factory->make($e);
     }

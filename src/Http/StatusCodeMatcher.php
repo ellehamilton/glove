@@ -1,7 +1,8 @@
 <?php
-namespace DerekHamilton\Glove\Http;
 
-use Exception;
+namespace ElleTheDev\Glove\Http;
+
+use Throwable;
 use Illuminate\Contracts\Container\Container;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
@@ -19,10 +20,10 @@ class StatusCodeMatcher
     }
 
     /**
-     * @param Exception $e
+     * @param Throwable $e
      * @return integer
      */
-    public function match(Exception $e)
+    public function match(Throwable $e)
     {
         // abort() calls return an HttpException with the status code
         // provided as an argument. e.g. abort(403) for a 403 error.

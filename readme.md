@@ -19,7 +19,7 @@ Laravel Glove is written for Laravel 5.5 and higher, thus also requiring PHP 7.0
 Installation is done via composer
 
 ~~~shell
-composer require derekhamilton/glove
+composer require ellehamilton/glove
 ~~~
 
 Once installed we need to run
@@ -31,7 +31,7 @@ php artisan vendor:publish
 If we don't use auto-discovery, we'll need to add `GloveServiceProvider` to the providers array in `config/app.php`
 
 ~~~php
-DerekHamilton\Glove\Providers\GloveServiceProvider::class,
+ElleTheDev\Glove\Providers\GloveServiceProvider::class,
 ~~~
 
 Glove integrates automatically with [Whoops](https://github.com/filp/whoops) with no additional configuration.
@@ -173,7 +173,7 @@ We can change the log level from the default 'error' to any of the Laravel log l
 
 ### Custom Exception Handling ###
 
-Writing a custom exception handler is as simple as implementing the `\DerekHamilton\Glove\Contracts\Handler` then telling it when to run in `config/glove.php`
+Writing a custom exception handler is as simple as implementing the `\ElleTheDev\Glove\Contracts\Handler` then telling it when to run in `config/glove.php`
 
 There's only one function to implement.
 
@@ -200,7 +200,7 @@ We'll write a custom handler to handle that exception.
 ~~~php
 namespace App\Exceptions\Handlers;
 
-use DerekHamilton\Glove\Contracts\Handler;
+use ElleTheDev\Glove\Contracts\Handler;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -247,7 +247,7 @@ If we want our handler to do something, but let other handlers deal with how to 
 ~~~php
 namespace App\Exceptions\Handlers;
 
-use DerekHamilton\Glove\Contracts\Handler;
+use ElleTheDev\Glove\Contracts\Handler;
 
 class MyHandler implements Handler
 {

@@ -1,7 +1,8 @@
 <?php
-namespace DerekHamilton\Glove\Renderers;
 
-use Exception;
+namespace ElleTheDev\Glove\Renderers;
+
+use Throwable;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Http\Request;
 
@@ -21,10 +22,10 @@ class HandlerRenderer
     /**
      * @param string    $handlerClass
      * @param Request   $request
-     * @param Exception $e
+     * @param Throwable $e
      * @return \Symfony\Component\HttpFoundation\Response|null
      */
-    public function render(string $handlerClass, Request $request, Exception $e)
+    public function render(string $handlerClass, Request $request, Throwable $e)
     {
         $handler = $this->container->make($handlerClass);
         return $handler->handle($request, $e);

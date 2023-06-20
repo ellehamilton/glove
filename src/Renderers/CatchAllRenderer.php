@@ -1,7 +1,8 @@
 <?php
-namespace DerekHamilton\Glove\Renderers;
 
-use Exception;
+namespace ElleTheDev\Glove\Renderers;
+
+use Throwable;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory as ViewFactory;
@@ -36,12 +37,12 @@ class CatchAllRenderer
     }
 
     /**
-     * @param Exception $e
+     * @param Throwable $e
      * @param integer   $code
      * @param string    $method glove-codes.$code.view.$method
      * @return \Illuminate\Http\Response
      */
-    public function render(Exception $e, int $code, string $method): \Illuminate\Http\Response
+    public function render(Throwable $e, int $code, string $method): \Illuminate\Http\Response
     {
         $viewData = $this->config->get('glove-codes.'.$code.'.data');
         $viewData = is_array($viewData) ? $viewData : [];

@@ -1,17 +1,18 @@
 <?php
-namespace DerekHamilton\Tests\Glove\Handlers;
+
+namespace ElleTheDev\Tests\Glove\Handlers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\View\View;
-use DerekHamilton\Glove\Renderers\CatchAllRenderer;
-use DerekHamilton\Tests\Glove\Stubs\HandlerStub;
+use ElleTheDev\Glove\Renderers\CatchAllRenderer;
+use ElleTheDev\Tests\Glove\Stubs\HandlerStub;
 use Exception;
 use Mockery;
 
-class CatchAllRendererTest extends \DerekHamilton\Tests\Glove\TestCase
+class CatchAllRendererTest extends \ElleTheDev\Tests\Glove\TestCase
 {
     public function testRender()
     {
@@ -31,7 +32,7 @@ class CatchAllRendererTest extends \DerekHamilton\Tests\Glove\TestCase
 
         $renderer = $this->app->make(CatchAllRenderer::class, ['responseFactory' => $responseFactory, 'viewFactory' => $viewFactory]);
         $request = $this->app->make(Request::class);
-        $e = new Exception;
+        $e = new Exception();
         $response = $renderer->render($e, 500, 'http');
         $this->assertInstanceOf(Response::class, $response);
     }
