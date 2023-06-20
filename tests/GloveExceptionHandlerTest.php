@@ -1,22 +1,23 @@
 <?php
-namespace ElleHamilton\Tests\Glove;
+
+namespace ElleTheDev\Tests\Glove;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Symfony\Component\Console\Output\OutputInterface;
-use ElleHamilton\Glove\Renderers\ExceptionRenderer;
-use ElleHamilton\Glove\Renderers\ConsoleRenderer;
-use ElleHamilton\Glove\Renderers\SimpleExceptionRenderer;
-use ElleHamilton\Glove\Logging\Logger;
-use ElleHamilton\Glove\GloveExceptionHandler;
+use ElleTheDev\Glove\Renderers\ExceptionRenderer;
+use ElleTheDev\Glove\Renderers\ConsoleRenderer;
+use ElleTheDev\Glove\Renderers\SimpleExceptionRenderer;
+use ElleTheDev\Glove\Logging\Logger;
+use ElleTheDev\Glove\GloveExceptionHandler;
 use Exception;
 use Mockery;
 
-class GloveExceptionHandlerTest extends \ElleHamilton\Tests\Glove\TestCase
+class GloveExceptionHandlerTest extends \ElleTheDev\Tests\Glove\TestCase
 {
     public function testReport()
     {
-        $e = new Exception;
+        $e = new Exception();
 
         $exceptionRenderer = Mockery::mock(ExceptionRenderer::class);
         $consoleRenderer = Mockery::mock(ConsoleRenderer::class);
@@ -30,7 +31,7 @@ class GloveExceptionHandlerTest extends \ElleHamilton\Tests\Glove\TestCase
 
     public function testRender()
     {
-        $e = new Exception;
+        $e = new Exception();
         $request = Mockery::mock(Request::class);
         $response = Mockery::mock(Response::class);
 
@@ -46,7 +47,7 @@ class GloveExceptionHandlerTest extends \ElleHamilton\Tests\Glove\TestCase
 
     public function testRenderSimple()
     {
-        $e = new Exception;
+        $e = new Exception();
         $request = Mockery::mock(Request::class);
         $response = Mockery::mock(Response::class);
 
@@ -63,7 +64,7 @@ class GloveExceptionHandlerTest extends \ElleHamilton\Tests\Glove\TestCase
 
     public function testRenderForConsole()
     {
-        $e = new Exception;
+        $e = new Exception();
         $output = Mockery::mock(OutputInterface::class);
 
         $exceptionRenderer = Mockery::mock(ExceptionRenderer::class);
@@ -78,7 +79,7 @@ class GloveExceptionHandlerTest extends \ElleHamilton\Tests\Glove\TestCase
 
     public function testShouldReport()
     {
-        $e = new Exception;
+        $e = new Exception();
         $output = Mockery::mock(OutputInterface::class);
 
         $exceptionRenderer = Mockery::mock(ExceptionRenderer::class);

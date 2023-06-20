@@ -1,8 +1,9 @@
 <?php
-namespace ElleHamilton\Glove\Handlers;
 
-use ElleHamilton\Glove\Contracts\Handler;
-use ElleHamilton\Glove\Http\StatusCodeMatcher;
+namespace ElleTheDev\Glove\Handlers;
+
+use ElleTheDev\Glove\Contracts\Handler;
+use ElleTheDev\Glove\Http\StatusCodeMatcher;
 use Exception;
 use Illuminate\Config\Repository as Configuration;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -62,8 +63,8 @@ class WhoopsHandler implements Handler
      */
     private function whoopsResponse(Exception $e)
     {
-        $whoops = new Whoops;
-        $whoops->pushHandler(new PrettyPageHandler);
+        $whoops = new Whoops();
+        $whoops->pushHandler(new PrettyPageHandler());
         return $this->responseFactory->make(
             $whoops->handleException($e),
             500

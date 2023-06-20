@@ -1,8 +1,9 @@
 <?php
-namespace ElleHamilton\Glove\Handlers;
 
-use ElleHamilton\Glove\Http\StatusCodeMatcher;
-use ElleHamilton\Glove\Renderers\CatchAllRenderer;
+namespace ElleTheDev\Glove\Handlers;
+
+use ElleTheDev\Glove\Http\StatusCodeMatcher;
+use ElleTheDev\Glove\Renderers\CatchAllRenderer;
 use Exception;
 use Illuminate\Http\Request;
 

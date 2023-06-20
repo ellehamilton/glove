@@ -1,5 +1,6 @@
 <?php
-namespace ElleHamilton\Glove\Renderers;
+
+namespace ElleTheDev\Glove\Renderers;
 
 use Exception;
 use Illuminate\Contracts\Container\Container;

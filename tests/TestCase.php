@@ -1,5 +1,6 @@
 <?php
-namespace ElleHamilton\Tests\Glove;
+
+namespace ElleTheDev\Tests\Glove;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
 

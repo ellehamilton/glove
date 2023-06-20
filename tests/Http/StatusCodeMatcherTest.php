@@ -1,12 +1,13 @@
 <?php
-namespace ElleHamilton\Tests\Glove\Http;
+
+namespace ElleTheDev\Tests\Glove\Http;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use ElleHamilton\Glove\Http\StatusCodeMatcher;
+use ElleTheDev\Glove\Http\StatusCodeMatcher;
 use Exception;
 use Mockery;
 
-class StatusCodeMatcherTest extends \ElleHamilton\Tests\Glove\TestCase
+class StatusCodeMatcherTest extends \ElleTheDev\Tests\Glove\TestCase
 {
     public function testMatch()
     {
@@ -15,7 +16,7 @@ class StatusCodeMatcherTest extends \ElleHamilton\Tests\Glove\TestCase
             Exception::class => $code
         ]);
         $codeMatcher = $this->app->make(StatusCodeMatcher::class);
-        $e = new Exception;
+        $e = new Exception();
         $response = $codeMatcher->match($e);
         $this->assertSame($response, $code);
     }

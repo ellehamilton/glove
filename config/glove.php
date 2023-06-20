@@ -12,8 +12,8 @@ return [
         // AJAX handlers are only processed if the request is an AJAX request
         'ajax' => [
             Exception::class => [
-                \ElleHamilton\Glove\Handlers\WhoopsHandler::class,
-                \ElleHamilton\Glove\Handlers\Ajax\ExceptionHandler::class,
+                \ElleTheDev\Glove\Handlers\WhoopsHandler::class,
+                \ElleTheDev\Glove\Handlers\Ajax\ExceptionHandler::class,
             ]
         ],
 
@@ -26,8 +26,8 @@ return [
         // first, the global handler will not be reached.
         'global' => [
             Exception::class => [
-                \ElleHamilton\Glove\Handlers\WhoopsHandler::class,
-                \ElleHamilton\Glove\Handlers\ExceptionHandler::class,
+                \ElleTheDev\Glove\Handlers\WhoopsHandler::class,
+                \ElleTheDev\Glove\Handlers\ExceptionHandler::class,
             ]
         ]
     ],

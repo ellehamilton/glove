@@ -1,12 +1,12 @@
 <?php
 
-namespace ElleHamilton\Tests\Glove\Renderers;
+namespace ElleTheDev\Tests\Glove\Renderers;
 
-use ElleHamilton\Glove\Renderers\SimpleExceptionRenderer;
+use ElleTheDev\Glove\Renderers\SimpleExceptionRenderer;
 use Exception;
 use Mockery;
 
-class SimpleExceptionRendererTest extends \ElleHamilton\Tests\Glove\TestCase
+class SimpleExceptionRendererTest extends \ElleTheDev\Tests\Glove\TestCase
 {
     public function testRender()
     {

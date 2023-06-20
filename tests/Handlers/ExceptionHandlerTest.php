@@ -1,17 +1,18 @@
 <?php
-namespace ElleHamilton\Tests\Glove\Handlers;
+
+namespace ElleTheDev\Tests\Glove\Handlers;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
-use ElleHamilton\Glove\Handlers\ExceptionHandler;
-use ElleHamilton\Glove\Renderers\CatchAllRenderer;
-use ElleHamilton\Tests\Glove\Stubs\HandlerStub;
+use ElleTheDev\Glove\Handlers\ExceptionHandler;
+use ElleTheDev\Glove\Renderers\CatchAllRenderer;
+use ElleTheDev\Tests\Glove\Stubs\HandlerStub;
 use Exception;
 use Mockery;
 
-class ExceptionHandlerTest extends \ElleHamilton\Tests\Glove\TestCase
+class ExceptionHandlerTest extends \ElleTheDev\Tests\Glove\TestCase
 {
     public function testHandle()
     {

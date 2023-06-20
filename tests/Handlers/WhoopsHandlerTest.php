@@ -1,16 +1,17 @@
 <?php
-namespace ElleHamilton\Tests\Glove\Handlers;
+
+namespace ElleTheDev\Tests\Glove\Handlers;
 
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Config\Repository as Configuration;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use ElleHamilton\Glove\Handlers\WhoopsHandler;
+use ElleTheDev\Glove\Handlers\WhoopsHandler;
 use Exception;
 use Mockery;
 
-class WhoopsHandlerTest extends \ElleHamilton\Tests\Glove\TestCase
+class WhoopsHandlerTest extends \ElleTheDev\Tests\Glove\TestCase
 {
     // test that Whoops isn't triggered if the application is not in
     // debug mode
@@ -22,7 +23,7 @@ class WhoopsHandlerTest extends \ElleHamilton\Tests\Glove\TestCase
         $config->shouldReceive('get')->with('app.debug')->andReturn(false);
         $config->shouldReceive('get')->with('glove-codes.500.debug', true)->andReturn(true);
         $request = Mockery::mock(Request::class);
-        $e = new Exception;
+        $e = new Exception();
 
         $handler = $this->app->make(WhoopsHandler::class, [
             'responseFactory' => $responseFactory,
@@ -42,7 +43,7 @@ class WhoopsHandlerTest extends \ElleHamilton\Tests\Glove\TestCase
         $config->shouldReceive('get')->with('app.debug')->andReturn(true);
         $config->shouldReceive('get')->with('glove-codes.500.debug', true)->andReturn(false);
         $request = Mockery::mock(Request::class);
-        $e = new Exception;
+        $e = new Exception();
 
         $handler = $this->app->make(WhoopsHandler::class, [
             'responseFactory' => $responseFactory,
@@ -62,7 +63,7 @@ class WhoopsHandlerTest extends \ElleHamilton\Tests\Glove\TestCase
         $config->shouldReceive('get')->with('app.debug')->andReturn(true);
         $config->shouldReceive('get')->with('glove-codes.500.debug', true)->andReturn(true);
         $request = Mockery::mock(Request::class);
-        $e = new Exception;
+        $e = new Exception();
 
         $handler = $this->app->make(WhoopsHandler::class, [
             'responseFactory' => $responseFactory,

@@ -1,5 +1,6 @@
 <?php
-namespace ElleHamilton\Glove\Contracts;
+
+namespace ElleTheDev\Glove\Contracts;
 
 use Exception;
 use Illuminate\Http\Request;

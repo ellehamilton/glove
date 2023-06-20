@@ -1,11 +1,11 @@
 <?php
 
-namespace ElleHamilton\Glove;
+namespace ElleTheDev\Glove;
 
-use ElleHamilton\Glove\Logging\Logger;
-use ElleHamilton\Glove\Renderers\ConsoleRenderer;
-use ElleHamilton\Glove\Renderers\ExceptionRenderer;
-use ElleHamilton\Glove\Renderers\SimpleExceptionRenderer;
+use ElleTheDev\Glove\Logging\Logger;
+use ElleTheDev\Glove\Renderers\ConsoleRenderer;
+use ElleTheDev\Glove\Renderers\ExceptionRenderer;
+use ElleTheDev\Glove\Renderers\SimpleExceptionRenderer;
 use Throwable;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 

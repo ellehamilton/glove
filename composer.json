@@ -1,5 +1,5 @@
 {
-    "name": "ellehamilton/glove",
+    "name": "elle-the-dev/glove",
     "description": "Exception handling for Laravel that catches like a glove.",
     "keywords": ["laravel", "exceptions", "exception", "handling"],
     "license": "MIT",
@@ -20,18 +20,18 @@
     },
     "autoload": {
         "psr-4": {
-            "ElleHamilton\\Glove\\": "src/"
+            "ElleTheDev\\Glove\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ElleHamilton\\Tests\\Glove\\": "tests/"
+            "ElleTheDev\\Tests\\Glove\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "ElleHamilton\\Glove\\Providers\\GloveServiceProvider"
+                "ElleTheDev\\Glove\\Providers\\GloveServiceProvider"
             ]
         }
     }

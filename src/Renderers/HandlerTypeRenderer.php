@@ -1,6 +1,6 @@
 <?php
 
-namespace ElleHamilton\Glove\Renderers;
+namespace ElleTheDev\Glove\Renderers;
 
 use Throwable;
 use Illuminate\Http\Request;

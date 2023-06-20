@@ -1,5 +1,6 @@
 <?php
-namespace ElleHamilton\Glove\Http;
+
+namespace ElleTheDev\Glove\Http;
 
 use Exception;
 use Illuminate\Contracts\Container\Container;

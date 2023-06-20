@@ -1,12 +1,13 @@
 <?php
-namespace ElleHamilton\Tests\Glove\Logging;
 
-use ElleHamilton\Glove\Logging\Logger;
+namespace ElleTheDev\Tests\Glove\Logging;
+
+use ElleTheDev\Glove\Logging\Logger;
 use Exception;
 use Mockery;
 use Psr\Log\LoggerInterface;
 
-class LoggerTest extends \ElleHamilton\Tests\Glove\TestCase
+class LoggerTest extends \ElleTheDev\Tests\Glove\TestCase
 {
     public function testLog()
     {
@@ -18,7 +19,7 @@ class LoggerTest extends \ElleHamilton\Tests\Glove\TestCase
         $loggerInterface = Mockery::mock(LoggerInterface::class);
         $loggerInterface->shouldReceive($logLevel)->once();
 
-        $e      = new Exception;
+        $e      = new Exception();
         $logger = $this->app->make(Logger::class, ['logger' => $loggerInterface]);
         $logger->log($e);
     }
@@ -33,7 +34,7 @@ class LoggerTest extends \ElleHamilton\Tests\Glove\TestCase
         $loggerInterface = Mockery::mock(LoggerInterface::class);
         $loggerInterface->shouldNotReceive($logLevel);
 
-        $e      = new Exception;
+        $e      = new Exception();
         $logger = $this->app->make(Logger::class, ['logger' => $loggerInterface]);
         $logger->log($e);
     }
@@ -41,7 +42,7 @@ class LoggerTest extends \ElleHamilton\Tests\Glove\TestCase
     public function testNoLogLevels()
     {
         $this->app->config->set('glove.logLevels', []);
-        $e      = new Exception;
+        $e      = new Exception();
         $logger = $this->app->make(Logger::class);
         $this->assertNull($logger->log($e));
     }
@@ -55,7 +56,7 @@ class LoggerTest extends \ElleHamilton\Tests\Glove\TestCase
         $loggerInterface = Mockery::mock(LoggerInterface::class);
         $loggerInterface->shouldReceive($logLevel)->once();
 
-        $e      = new Exception;
+        $e      = new Exception();
         $logger = $this->app->make(Logger::class, ['logger' => $loggerInterface]);
         $logger->log($e);
     }
