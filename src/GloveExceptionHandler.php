@@ -54,7 +54,7 @@ class GloveExceptionHandler extends Handler
         $this->simpleRenderer    = $simpleRenderer;
         $this->logger            = $logger;
         $this->config            = $config;
-        $this->dontReport        = $this->config->get('glove.dontReport');
+        $this->dontReport        = $this->config->get('glove.skip');
     }
 
     /**
