@@ -8,6 +8,7 @@ use ElleTheDev\Glove\Renderers\ExceptionRenderer;
 use ElleTheDev\Glove\Renderers\SimpleExceptionRenderer;
 use Throwable;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Config\Repository as Configuration;
 
 /**
  * Global Exception Handler
@@ -29,6 +30,9 @@ class GloveExceptionHandler implements ExceptionHandler
     /** @var Logger */
     protected $logger;
 
+    /** @var Configuration */
+    protected $config;
+
     /**
      * @param ExceptionRenderer       $exceptionRenderer
      * @param ConsoleRenderer         $consoleRenderer
@@ -39,12 +43,14 @@ class GloveExceptionHandler implements ExceptionHandler
         ExceptionRenderer $exceptionRenderer,
         ConsoleRenderer $consoleRenderer,
         SimpleExceptionRenderer $simpleRenderer,
-        Logger $logger
+        Logger $logger,
+        Configuration $config
     ) {
         $this->exceptionRenderer = $exceptionRenderer;
         $this->consoleRenderer   = $consoleRenderer;
         $this->simpleRenderer    = $simpleRenderer;
         $this->logger            = $logger;
+        $this->config            = $config;
     }
 
     /**
@@ -94,6 +100,12 @@ class GloveExceptionHandler implements ExceptionHandler
     public function shouldReport(Throwable $e)
     {
         // ignoring is handled using `logLevels` in `config/glove.php`
+        $dontReport = $this->config->get('glove.dontReport', []);
+        foreach ($dontReport as $className) {
+            if ($e instanceof $className) {
+                return false;
+            }
+        }
         return true;
     }
 }

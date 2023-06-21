@@ -32,6 +32,10 @@ return [
         ]
     ],
 
+    // Exceptions to pass directly through glove and do not catch
+    'dontReport' => [
+    ],
+
     // Laravel logs based on log levels.
     // You only need to specify a log level if you want to override the default
     // for a particular exception from the Exception level.
