@@ -6,9 +6,9 @@ use ElleTheDev\Glove\Logging\Logger;
 use ElleTheDev\Glove\Renderers\ConsoleRenderer;
 use ElleTheDev\Glove\Renderers\ExceptionRenderer;
 use ElleTheDev\Glove\Renderers\SimpleExceptionRenderer;
-use Throwable;
-use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Config\Repository as Configuration;
+use Illuminate\Foundation\Exceptions\Handler;
+use Throwable;
 
 /**
  * Global Exception Handler
@@ -16,7 +16,7 @@ use Illuminate\Config\Repository as Configuration;
  * Processes any otherwise uncaught exceptions and defers their processing to
  * whichever Handler is most appropriate per the config in config/glove.php
  */
-class GloveExceptionHandler implements ExceptionHandler
+class GloveExceptionHandler extends Handler
 {
     /** @var ExceptionRenderer */
     protected $exceptionRenderer;
@@ -33,11 +33,14 @@ class GloveExceptionHandler implements ExceptionHandler
     /** @var Configuration */
     protected $config;
 
+    protected $dontReport = [];
+
     /**
      * @param ExceptionRenderer       $exceptionRenderer
      * @param ConsoleRenderer         $consoleRenderer
      * @param SimpleExceptionRenderer $simpleRenderer
      * @param Logger                  $logger
+     * @param Configuration           $config
      */
     public function __construct(
         ExceptionRenderer $exceptionRenderer,
@@ -51,6 +54,7 @@ class GloveExceptionHandler implements ExceptionHandler
         $this->simpleRenderer    = $simpleRenderer;
         $this->logger            = $logger;
         $this->config            = $config;
+        $this->dontReport        = $this->config->get('glove.dontReport');
     }
 
     /**
@@ -75,6 +79,9 @@ class GloveExceptionHandler implements ExceptionHandler
      */
     public function render($request, Throwable $e)
     {
+        if ($this->shouldntReport($e)) {
+            return parent::render($request, $e);
+        }
         return $this->exceptionRenderer->render($request, $e) ?: $this->simpleRenderer->render($e);
     }
 
