@@ -6,8 +6,9 @@ use ElleTheDev\Glove\Logging\Logger;
 use ElleTheDev\Glove\Renderers\ConsoleRenderer;
 use ElleTheDev\Glove\Renderers\ExceptionRenderer;
 use ElleTheDev\Glove\Renderers\SimpleExceptionRenderer;
+use Illuminate\Config\Repository as Configuration;
+use Illuminate\Foundation\Exceptions\Handler;
 use Throwable;
-use Illuminate\Contracts\Debug\ExceptionHandler;
 
 /**
  * Global Exception Handler
@@ -15,7 +16,7 @@ use Illuminate\Contracts\Debug\ExceptionHandler;
  * Processes any otherwise uncaught exceptions and defers their processing to
  * whichever Handler is most appropriate per the config in config/glove.php
  */
-class GloveExceptionHandler implements ExceptionHandler
+class GloveExceptionHandler extends Handler
 {
     /** @var ExceptionRenderer */
     protected $exceptionRenderer;
@@ -29,22 +30,31 @@ class GloveExceptionHandler implements ExceptionHandler
     /** @var Logger */
     protected $logger;
 
+    /** @var Configuration */
+    protected $config;
+
+    protected $skip = [];
+
     /**
      * @param ExceptionRenderer       $exceptionRenderer
      * @param ConsoleRenderer         $consoleRenderer
      * @param SimpleExceptionRenderer $simpleRenderer
      * @param Logger                  $logger
+     * @param Configuration           $config
      */
     public function __construct(
         ExceptionRenderer $exceptionRenderer,
         ConsoleRenderer $consoleRenderer,
         SimpleExceptionRenderer $simpleRenderer,
-        Logger $logger
+        Logger $logger,
+        Configuration $config
     ) {
         $this->exceptionRenderer = $exceptionRenderer;
         $this->consoleRenderer   = $consoleRenderer;
         $this->simpleRenderer    = $simpleRenderer;
         $this->logger            = $logger;
+        $this->config            = $config;
+        $this->skip        = $this->config->get('glove.skip');
     }
 
     /**
@@ -69,6 +79,9 @@ class GloveExceptionHandler implements ExceptionHandler
      */
     public function render($request, Throwable $e)
     {
+        if ($this->shouldntReport($e)) {
+            return parent::render($request, $e);
+        }
         return $this->exceptionRenderer->render($request, $e) ?: $this->simpleRenderer->render($e);
     }
 
@@ -94,6 +107,11 @@ class GloveExceptionHandler implements ExceptionHandler
     public function shouldReport(Throwable $e)
     {
         // ignoring is handled using `logLevels` in `config/glove.php`
+        foreach ($this->skip as $className) {
+            if ($e instanceof $className) {
+                return false;
+            }
+        }
         return true;
     }
 }

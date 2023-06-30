@@ -32,6 +32,10 @@ return [
         ]
     ],
 
+    // Exceptions to pass directly through glove and do not catch
+    'skip' => [
+    ],
+
     // Laravel logs based on log levels.
     // You only need to specify a log level if you want to override the default
     // for a particular exception from the Exception level.
@@ -39,6 +43,17 @@ return [
     // If you do not want a particular exception logged, specify the level as 'ignore'
     'logLevels' => [
         Symfony\Component\HttpKernel\Exception\NotFoundHttpException::class => 'ignore',
+        Illuminate\Auth\AuthenticationException::class => 'ignore',
+        Illuminate\Auth\Access\AuthorizationException::class => 'ignore',
+        Illuminate\Routing\Exceptions\BackedEnumCaseNotFoundException::class => 'ignore',
+        Symfony\Component\HttpKernel\Exception\HttpException::class => 'ignore',
+        Illuminate\Http\Exceptions\HttpResponseException::class => 'ignore',
+        Illuminate\Database\Eloquent\ModelNotFoundException::class => 'ignore',
+        Illuminate\Database\MultipleRecordsFoundException::class => 'ignore',
+        Illuminate\Database\RecordsNotFoundException::class => 'ignore',
+        Symfony\Component\HttpFoundation\Exception\SuspiciousOperationException::class => 'ignore',
+        Illuminate\Session\TokenMismatchException::class => 'ignore',
+        Illuminate\Validation\ValidationException::class => 'ignore',
         Exception::class => 'error'
     ],
 

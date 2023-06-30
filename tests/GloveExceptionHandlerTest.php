@@ -12,6 +12,7 @@ use ElleTheDev\Glove\Logging\Logger;
 use ElleTheDev\Glove\GloveExceptionHandler;
 use Exception;
 use Mockery;
+use Illuminate\Config\Repository as Configuration;
 
 class GloveExceptionHandlerTest extends \ElleTheDev\Tests\Glove\TestCase
 {
@@ -24,8 +25,10 @@ class GloveExceptionHandlerTest extends \ElleTheDev\Tests\Glove\TestCase
         $simpleRenderer = Mockery::mock(SimpleExceptionRenderer::class);
         $logger = Mockery::mock(Logger::class);
         $logger->shouldReceive('log')->once()->with($e);
+        $config = Mockery::mock(Configuration::class);
+        $config->shouldReceive('get')->with('glove.skip')->andReturn([]);
 
-        $handler = new GloveExceptionHandler($exceptionRenderer, $consoleRenderer, $simpleRenderer, $logger);
+        $handler = new GloveExceptionHandler($exceptionRenderer, $consoleRenderer, $simpleRenderer, $logger, $config);
         $handler->report($e);
     }
 
@@ -40,8 +43,10 @@ class GloveExceptionHandlerTest extends \ElleTheDev\Tests\Glove\TestCase
         $simpleRenderer = Mockery::mock(SimpleExceptionRenderer::class);
         $logger = Mockery::mock(Logger::class);
         $exceptionRenderer->shouldReceive('render')->once()->with($request, $e)->andReturn($response);
+        $config = Mockery::mock(Configuration::class);
+        $config->shouldReceive('get')->with('glove.skip')->andReturn([]);
 
-        $handler = new GloveExceptionHandler($exceptionRenderer, $consoleRenderer, $simpleRenderer, $logger);
+        $handler = new GloveExceptionHandler($exceptionRenderer, $consoleRenderer, $simpleRenderer, $logger, $config);
         $this->assertSame($response, $handler->render($request, $e));
     }
 
@@ -57,8 +62,10 @@ class GloveExceptionHandlerTest extends \ElleTheDev\Tests\Glove\TestCase
         $logger = Mockery::mock(Logger::class);
         $exceptionRenderer->shouldReceive('render')->once()->with($request, $e)->andReturn(null);
         $simpleRenderer->shouldReceive('render')->once()->with($e)->andReturn($response);
+        $config = Mockery::mock(Configuration::class);
+        $config->shouldReceive('get')->with('glove.skip')->andReturn([]);
 
-        $handler = new GloveExceptionHandler($exceptionRenderer, $consoleRenderer, $simpleRenderer, $logger);
+        $handler = new GloveExceptionHandler($exceptionRenderer, $consoleRenderer, $simpleRenderer, $logger, $config);
         $this->assertSame($response, $handler->render($request, $e));
     }
 
@@ -72,8 +79,10 @@ class GloveExceptionHandlerTest extends \ElleTheDev\Tests\Glove\TestCase
         $simpleRenderer = Mockery::mock(SimpleExceptionRenderer::class);
         $logger = Mockery::mock(Logger::class);
         $consoleRenderer->shouldReceive('render')->once()->with($output, $e);
+        $config = Mockery::mock(Configuration::class);
+        $config->shouldReceive('get')->with('glove.skip')->andReturn([]);
 
-        $handler = new GloveExceptionHandler($exceptionRenderer, $consoleRenderer, $simpleRenderer, $logger);
+        $handler = new GloveExceptionHandler($exceptionRenderer, $consoleRenderer, $simpleRenderer, $logger, $config);
         $handler->renderForConsole($output, $e);
     }
 
@@ -86,8 +95,10 @@ class GloveExceptionHandlerTest extends \ElleTheDev\Tests\Glove\TestCase
         $consoleRenderer = Mockery::mock(ConsoleRenderer::class);
         $simpleRenderer = Mockery::mock(SimpleExceptionRenderer::class);
         $logger = Mockery::mock(Logger::class);
+        $config = Mockery::mock(Configuration::class);
+        $config->shouldReceive('get')->with('glove.skip')->andReturn([]);
 
-        $handler = new GloveExceptionHandler($exceptionRenderer, $consoleRenderer, $simpleRenderer, $logger);
+        $handler = new GloveExceptionHandler($exceptionRenderer, $consoleRenderer, $simpleRenderer, $logger, $config);
         $this->assertTrue($handler->shouldReport($e));
     }
 }
