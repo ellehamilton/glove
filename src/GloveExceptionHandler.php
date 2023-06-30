@@ -33,7 +33,7 @@ class GloveExceptionHandler extends Handler
     /** @var Configuration */
     protected $config;
 
-    protected $dontReport = [];
+    protected $skip = [];
 
     /**
      * @param ExceptionRenderer       $exceptionRenderer
@@ -54,7 +54,7 @@ class GloveExceptionHandler extends Handler
         $this->simpleRenderer    = $simpleRenderer;
         $this->logger            = $logger;
         $this->config            = $config;
-        $this->dontReport        = $this->config->get('glove.skip');
+        $this->skip        = $this->config->get('glove.skip');
     }
 
     /**
@@ -107,8 +107,7 @@ class GloveExceptionHandler extends Handler
     public function shouldReport(Throwable $e)
     {
         // ignoring is handled using `logLevels` in `config/glove.php`
-        $dontReport = $this->config->get('glove.dontReport', []);
-        foreach ($dontReport as $className) {
+        foreach ($this->skip as $className) {
             if ($e instanceof $className) {
                 return false;
             }
